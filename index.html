@@ -149,6 +149,77 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/02/%EC%9B%90%EC%8B%9C%EA%B0%92%EA%B3%BC%EA%B0%9D%EC%B2%B4%EC%9D%98%EB%B9%84%EA%B5%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wgy5446">
+      <meta itemprop="description" content="All story about js">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="John">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/%EC%9B%90%EC%8B%9C%EA%B0%92%EA%B3%BC%EA%B0%9D%EC%B2%B4%EC%9D%98%EB%B9%84%EA%B5%90/" class="post-title-link" itemprop="url">Comparison of primitive values and objects</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-02-26 14:32:15 / Modified: 15:53:40" itemprop="dateCreated datePublished" datetime="2020-02-26T14:32:15+09:00">2020-02-26</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-원시-값"><a href="#1-원시-값" class="headerlink" title="1. 원시 값"></a>1. 원시 값</h2><h3 id="1-1-변경-불가능한-값"><a href="#1-1-변경-불가능한-값" class="headerlink" title="1-1. 변경 불가능한 값"></a>1-1. 변경 불가능한 값</h3><p>원시 값은 변경 불가능한 값이다. 즉 변경 불가능하다는 것은 변수가 아니라 값에 대한 진술이다. 변수는 언제든지 재할당을 통해 변수 값을 변경 할 수 있다. 상수는 단 한번만 할당 할 수 있다. 따라서 변수 값을 변경하기 위해 원시 값을 재할당하면 새로운 메모리 공간을 확보하고 재할당한 값을 저장한 후, 변수가 참조하던 메모리 공간의 주소를 변경한다. 원시 값의 특성을 불변성이라 한다.</p>
+<hr>
+<h3 id="1-2-문자열과-불변성"><a href="#1-2-문자열과-불변성" class="headerlink" title="1-2. 문자열과 불변성"></a>1-2. 문자열과 불변성</h3><p>원시 값인 문자열은 다른 원시 값과 비교할 때 특징은 문자열은 0개 이상의 문자 들로 이루어진 집합을 말하며 1개의 문자는 2byte의 메모리 공간에 저장된다. 숫자 값은 1도, 1000000도 8byte가 필요하다.</p>
+<hr>
+<h3 id="1-3-값에-의한-전달"><a href="#1-3-값에-의한-전달" class="headerlink" title="1-3. 값에 의한 전달"></a>1-3. 값에 의한 전달</h3><p>변수에 원시값을 갖는 변수를 할당하면 변수에는 할당되는 변수의 원시값이 복사되어 전달된다. 이를 값에 의한 전달(Pass by value)라 한다. 두개의 값은 다른 메모리 공간에 저장된 별개의 값이 된다. 값의 의한 전달도 사실은 값을 전달하는 것이 아니라 메모리 주소를 전달한다. 전달된 메모리 주소를 통해 메모리 공간에 접근하면 값을 참조할 수 있다. 변수에 원시값을 갖는 변수를 할당하는 경우, 두 변수의 원시값은 거로 다른 메모리 공간에 저장된 별개의 값이 되어 어느 한쪽에서 재할당을 통해 값을 변경하더라도 서로 간섭할 수 없다.</p>
+<hr>
+<h2 id="2-객체"><a href="#2-객체" class="headerlink" title="2. 객체"></a>2. 객체</h2><p>객체는 프로퍼티의 개수가 정해져 있지 않으며 동적으로 추가되고 삭제할 수 있다.</p>
+<hr>
+<h3 id="2-1-변경-가능한-값"><a href="#2-1-변경-가능한-값" class="headerlink" title="2-1. 변경 가능한 값"></a>2-1. 변경 가능한 값</h3><p>객체는 변경 가능한 값이다. 객체를 할당한 변수에는 생성된 객체가 실제로 저장된 메모리 공간의 주소가 저장되어 있다. 이 값을 참조 값이라고 한다. 변수는 이 참조 값을 통해 객체에 접근 한다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">얕은 복사는 한 단계까지만 복사하는 것을 말하고 깊은 복사는 객체에 중첩되어 있는 객체까지 모두 복사하는 것을 말한다.</span><br></pre></td></tr></table></figure>
+<p>객체는 이러한 구조적 단점에 따른 부작용이 있다. 그것은 원시 값과는 다르게 여러 개의 식별자가 하나의 객체를 공유할 수 있다.</p>
+<hr>
+<h3 id="2-2-참조에-의한-전달"><a href="#2-2-참조에-의한-전달" class="headerlink" title="2-2. 참조에 의한 전달"></a>2-2. 참조에 의한 전달</h3><p>객체를 가리키는 변수를 다른 변수에 할당하면 원본의 참조 값이 복사되어 전달된다. 이를 참조에 의한 전달이라 한다.<br>자바스크립트에는 참조에 의한 전달은 존재하지 않고 값에 의한 전달 만이 존재한다고 말할 수 있다.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/02/%EA%B0%9D%EC%B2%B4%EB%A6%AC%ED%84%B0%EB%9F%B4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -994,79 +1065,12 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/02/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="wgy5446">
-      <meta itemprop="description" content="All story about js">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="John">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-02-10 10:45:25" itemprop="dateCreated datePublished" datetime="2020-02-10T10:45:25+09:00">2020-02-10</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
 
 
 
@@ -1131,7 +1135,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
