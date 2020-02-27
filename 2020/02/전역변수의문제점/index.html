@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"wgy5446.github.io","root":"/","scheme":"Muse","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="제어문제어문은 주어진 조건에 따라 코드 블록을 실행(조건문)하거나 반복 실행(반복문)할 때 사용한다. 일반적 으로 코드는 위에서 아래 방향으로 순차적으로 실행된다. 제어문을 사용하면 코드의 실행 흐름을 인위적으로 제어할 수 있다.  1. 블록문블록문는 0개 이상의 문을 중괄호로 묶은 것으로 코드 블록 또는 블록이라고 부르기도 한다. 자바스크립트는 블록문을">
+  <meta name="description" content="1. 변수의 생명 주기1-1. 지역 변수의 생명 주기변수는 생물과 유사하게 생성되고 소멸되는 생명 주기가 있다. 변수는 자신이 선언된 위치에서 생성되고 소멸한다. 전역 변수의 생명 주기는 애플리케이션의 생명 주기와 같다. 하지만 함수 내부에서 선언된 지역 변수는 함수가 호출되면 생성되고 함수가 종료하면 소멸된다. 지역 변수의 생명 주기는 함수의 생명 주기와">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Control flow statement">
-<meta property="og:url" content="https://wgy5446.github.io/2020/02/%EC%A0%9C%EC%96%B4%EB%AC%B8/index.html">
+<meta property="og:title" content="전역 변수의 문제점">
+<meta property="og:url" content="https://wgy5446.github.io/2020/02/%EC%A0%84%EC%97%AD%EB%B3%80%EC%88%98%EC%9D%98%EB%AC%B8%EC%A0%9C%EC%A0%90/index.html">
 <meta property="og:site_name" content="John">
-<meta property="og:description" content="제어문제어문은 주어진 조건에 따라 코드 블록을 실행(조건문)하거나 반복 실행(반복문)할 때 사용한다. 일반적 으로 코드는 위에서 아래 방향으로 순차적으로 실행된다. 제어문을 사용하면 코드의 실행 흐름을 인위적으로 제어할 수 있다.  1. 블록문블록문는 0개 이상의 문을 중괄호로 묶은 것으로 코드 블록 또는 블록이라고 부르기도 한다. 자바스크립트는 블록문을">
+<meta property="og:description" content="1. 변수의 생명 주기1-1. 지역 변수의 생명 주기변수는 생물과 유사하게 생성되고 소멸되는 생명 주기가 있다. 변수는 자신이 선언된 위치에서 생성되고 소멸한다. 전역 변수의 생명 주기는 애플리케이션의 생명 주기와 같다. 하지만 함수 내부에서 선언된 지역 변수는 함수가 호출되면 생성되고 함수가 종료하면 소멸된다. 지역 변수의 생명 주기는 함수의 생명 주기와">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-02-23T08:49:38.000Z">
-<meta property="article:modified_time" content="2020-02-23T09:20:40.401Z">
+<meta property="article:published_time" content="2020-02-27T13:54:43.000Z">
+<meta property="article:modified_time" content="2020-02-27T14:19:00.704Z">
 <meta property="article:author" content="wgy5446">
 <meta property="article:tag" content="javascript">
 <meta property="article:tag" content=" js">
@@ -39,7 +39,7 @@
 <meta property="article:tag" content=" leopold">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://wgy5446.github.io/2020/02/%EC%A0%9C%EC%96%B4%EB%AC%B8/">
+<link rel="canonical" href="https://wgy5446.github.io/2020/02/%EC%A0%84%EC%97%AD%EB%B3%80%EC%88%98%EC%9D%98%EB%AC%B8%EC%A0%9C%EC%A0%90/">
 
 
 <script id="page-configurations">
@@ -51,7 +51,7 @@
   };
 </script>
 
-  <title>Control flow statement | John</title>
+  <title>전역 변수의 문제점 | John</title>
   
 
 
@@ -151,7 +151,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/02/%EC%A0%9C%EC%96%B4%EB%AC%B8/">
+    <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/02/%EC%A0%84%EC%97%AD%EB%B3%80%EC%88%98%EC%9D%98%EB%AC%B8%EC%A0%9C%EC%A0%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -164,7 +164,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Control flow statement
+          전역 변수의 문제점
         </h1>
 
         <div class="post-meta">
@@ -175,7 +175,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-02-23 17:49:38 / Modified: 18:20:40" itemprop="dateCreated datePublished" datetime="2020-02-23T17:49:38+09:00">2020-02-23</time>
+              <time title="Created: 2020-02-27 22:54:43 / Modified: 23:19:00" itemprop="dateCreated datePublished" datetime="2020-02-27T22:54:43+09:00">2020-02-27</time>
             </span>
 
           
@@ -189,28 +189,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="제어문"><a href="#제어문" class="headerlink" title="제어문"></a>제어문</h2><p>제어문은 주어진 조건에 따라 코드 블록을 실행(조건문)하거나 반복 실행(반복문)할 때 사용한다. 일반적 으로 코드는 위에서 아래 방향으로 순차적으로 실행된다. 제어문을 사용하면 코드의 실행 흐름을 인위적으로 제어할 수 있다.</p>
+        <h2 id="1-변수의-생명-주기"><a href="#1-변수의-생명-주기" class="headerlink" title="1. 변수의 생명 주기"></a>1. 변수의 생명 주기</h2><h3 id="1-1-지역-변수의-생명-주기"><a href="#1-1-지역-변수의-생명-주기" class="headerlink" title="1-1. 지역 변수의 생명 주기"></a>1-1. 지역 변수의 생명 주기</h3><p>변수는 생물과 유사하게 생성되고 소멸되는 생명 주기가 있다. 변수는 자신이 선언된 위치에서 생성되고 소멸한다. 전역 변수의 생명 주기는 애플리케이션의 생명 주기와 같다. 하지만 함수 내부에서 선언된 지역 변수는 함수가 호출되면 생성되고 함수가 종료하면 소멸된다. 지역 변수의 생명 주기는 함수의 생명 주기와 일치한다.</p>
 <hr>
-<h3 id="1-블록문"><a href="#1-블록문" class="headerlink" title="1. 블록문"></a>1. 블록문</h3><p>블록문는 0개 이상의 문을 중괄호로 묶은 것으로 코드 블록 또는 블록이라고 부르기도 한다. 자바스크립트는 블록문을 하나의 실행 단위로 취급한다. 블록문은 단독으로 사용할 수도 있으나 일반적으로 제어문이나 함수를 정의할 때 사용하는 것이 일반적이다.</p>
+<h3 id="1-2-전역-변수의-생명-주기"><a href="#1-2-전역-변수의-생명-주기" class="headerlink" title="1-2. 전역 변수의 생명 주기"></a>1-2. 전역 변수의 생명 주기</h3><p>전역 코드는 함수 호출과 같이 전역 코드를 실행하는 특별한 진입점이 없고 코드가 로드되자마자 곧바로 해석되고 실행된다. 전역 코드에는 return 문을 사용할 수 없으므로 마지막 문이 실행되어 더 이상 실행할 문이 없을 때 종료한다. 전역 변수의 생명주기는 전역 객체의 생명 주기와 일치한다.</p>
 <hr>
-<h3 id="2-조건문"><a href="#2-조건문" class="headerlink" title="2. 조건문"></a>2. 조건문</h3><p>조건문은 주어진 조건식의 평가 결과에 따라 코드 블럭의 실행을 결정한다. 조건식은 불리언 값으로 평가될 수 있는 표현식이다. 2가지의 조건문 if…else 문과 switch 문을 제공한다.</p>
+<h2 id="2-전역-변수의-문제점"><a href="#2-전역-변수의-문제점" class="headerlink" title="2. 전역 변수의 문제점"></a>2. 전역 변수의 문제점</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">전역 변수를 선언한 의도는 전역, 즉 코드 어디에서든지 전역 변수를 사용하겠다는 것이다. 이는 모든 코드가 전역 변수를 참조하고 변경할 수 있는 암묵적 결합을 허용하는 것으로 변수의 유효 범위가 크면 클수록 코드의 가독성은 나빠지고 의도치 않게 상태가 변경될 수 있는 위험성도 높아진다.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">전역 변수는 생명 주기가 길다. 따라서 메모리 리소스도 오랜 기간 소비한다.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">전역 변수의 검색 속도가 가장 느리다.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">자바스크립트에서 가장 큰 문제점 중의 하나는 파일이 분리되어 있다하여도 하나의 전역 스코프를 공유한다는 것이다. 따라서 다른 파일 내에서 동일한 이름으로 명명된 변수나 함수가 같은 스코프 내에 존재할 경우 예상치 못한 결과를 가져올 수 있다.</span><br></pre></td></tr></table></figure>
+
 <hr>
-<h3 id="2-1-if…else-문"><a href="#2-1-if…else-문" class="headerlink" title="2-1. if…else 문"></a>2-1. if…else 문</h3><p>if…else 문은 주어진 조건식의 평가 결과, 즉 논리적 참 또는 거짓에 따라 실행할 코드 블록을 결정한다. 조건식의 평가 결과가 참일 경우, if 문 다음의 코드 블록이 실행되고 거짓일 경우, else 문 다음의 코드 블록이 실행된다.<br>if 문의 조건식은 불리언 값으로 평가되어야 한다.</p>
+<h2 id="3-전역-변수-사용-억제-방법"><a href="#3-전역-변수-사용-억제-방법" class="headerlink" title="3. 전역 변수 사용 억제 방법"></a>3. 전역 변수 사용 억제 방법</h2><p>전역 변수를 반드시 사용하여야 할 이유를 찾지 못한다면 지역 변수를 사용하여야 한다.변수의 스코프는 좁을수록 좋다.</p>
 <hr>
-<h3 id="2-2-switch-문"><a href="#2-2-switch-문" class="headerlink" title="2-2. switch 문"></a>2-2. switch 문</h3><p>switch 문은 주어진 표현식을 평가하여 그 값과 일치하는 표현식을 갖는 case 문으로 실행 순서를 이동시킨다. case 문은 상황을 의미하는 표현식을 지정하고 콜론으로 마친다. 그리고 그 뒤에 실행할 문들을 위치시킨다.</p>
+<h3 id="3-1-즉시-실행-함수"><a href="#3-1-즉시-실행-함수" class="headerlink" title="3-1. 즉시 실행 함수"></a>3-1. 즉시 실행 함수</h3><p>모든 코드를 즉시 실행 함수로 감싸면 모든 변수는 즉시 실행 함수의 지역 변수가 된다. 이러한 특성을 이용해 전역 변수의 사용을 제한하는 방법이다.</p>
 <hr>
-<h3 id="3-반복문"><a href="#3-반복문" class="headerlink" title="3. 반복문"></a>3. 반복문</h3><p>반복문은 주어진 조건식의 평가 결과가 참인 경우 코드 블럭을 실행한다. 그 후 조건식을 다시 검사하여 여전히 참 인 경우 코드 블록을 다시 실행한다. 이는 조건식이 거짓일 때까지 반복된다.<br>가지의 반복문 for 문, while 문, do…while 문을 제공한다.</p>
+<h3 id="3-2-네임-스페이스-객체"><a href="#3-2-네임-스페이스-객체" class="headerlink" title="3-2. 네임 스페이스 객체"></a>3-2. 네임 스페이스 객체</h3><p>전역에 네임 스페이스 역할을 담당할 객체를 생성하고 전역 변수처럼 사용하고 싶은 변수를 프로퍼티로 추가하는 방법이다.</p>
 <hr>
-<h3 id="3-1-for-문"><a href="#3-1-for-문" class="headerlink" title="3-1. for 문"></a>3-1. for 문</h3><p>for 문은 조건식이 거짓으로 판별될 때까지 코드 블록을 반복 실행한다.</p>
+<h3 id="3-3-모듈-패턴"><a href="#3-3-모듈-패턴" class="headerlink" title="3-3. 모듈 패턴"></a>3-3. 모듈 패턴</h3><p>모듈 패턴은 클래스를 모방하여 관련이 있는 변수와 함수를 모아 즉시 실행 함수로 감싸 하나의 모듈을 만든다. 모듈 패턴은 자바스크립트의 강력한 기능인 클로저를 기반으로 동작한다. 모듈 패턴의 특징은 전역 변수의 억제는 물론 캡슐화까지 구현할 수 있다는 것이다.</p>
 <hr>
-<h3 id="3-2-while-문"><a href="#3-2-while-문" class="headerlink" title="3-2. while 문"></a>3-2. while 문</h3><p>while 문은 주어진 조건식의 평가 결과가 참이면 코드 블록을 계속해서 반복 실행한다. 조건문의 평가 결과가 거짓이 되면 실행을 종료한다. 만약 조건식의 평가 결과가 불리언 값이 아니면 불리언 값으로 강제 변환되어 논리적 참, 거짓을 구별한다.</p>
-<hr>
-<h3 id="3-3-do…while-문"><a href="#3-3-do…while-문" class="headerlink" title="3-3. do…while 문"></a>3-3. do…while 문</h3><p>do…while 문은 코드 블록을 먼저 실행하고 조건식을 평가한다. 따라서 코드 블록은 무조건 한번 이상 실행된다.</p>
-<hr>
-<h3 id="4-break-문"><a href="#4-break-문" class="headerlink" title="4. break 문"></a>4. break 문</h3><p>switch 문과 while 문에서 살펴보았듯이 break 문은 코드 블록을 탈출한다. 좀 더 정확히 표현하자면 코드 블록을 탈출하는 것이 아니라 레이블 문, 반복문 또는 switch 문의 코드 블록을 탈출한다. 레이블 문, 반복문, switch 문의 코드 블록 이외에 break 문을 사용하면 SyntaxError가 발생한다.</p>
-<hr>
-<h3 id="5-continue-문"><a href="#5-continue-문" class="headerlink" title="5. continue 문"></a>5. continue 문</h3><p>continue 문은 반복문의 코드 블록 실행을 현 지점에서 중단하고 반복문의 증감식으로 이동한다. break 문처럼 반복문을 탈출하지는 않는다. </p>
-<hr>
+<h3 id="3-4-ES6-모듈"><a href="#3-4-ES6-모듈" class="headerlink" title="3-4. ES6 모듈"></a>3-4. ES6 모듈</h3><p>전역 변수의 남발을 억제하기 위해 ES6에서 도입된 모듈을 사용할 수도 있다. 모던 브라우저에서 ES6 모듈을 사용할 수 있다.</p>
 
     </div>
 
@@ -226,13 +223,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/02/%EC%97%B0%EC%82%B0%EC%9E%90/" rel="prev" title="Operator">
-      <i class="fa fa-chevron-left"></i> Operator
+    <a href="/2020/02/%EC%8A%A4%EC%BD%94%ED%94%84/" rel="prev" title="Scope">
+      <i class="fa fa-chevron-left"></i> Scope
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/02/%ED%83%80%EC%9E%85%EB%B3%80%ED%99%98/" rel="next" title="Type conversion and Short-Circuit evaluation">
-      Type conversion and Short-Circuit evaluation <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -292,7 +286,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#제어문"><span class="nav-number">1.</span> <span class="nav-text">제어문</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-블록문"><span class="nav-number">1.1.</span> <span class="nav-text">1. 블록문</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-조건문"><span class="nav-number">1.2.</span> <span class="nav-text">2. 조건문</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-if…else-문"><span class="nav-number">1.3.</span> <span class="nav-text">2-1. if…else 문</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-switch-문"><span class="nav-number">1.4.</span> <span class="nav-text">2-2. switch 문</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-반복문"><span class="nav-number">1.5.</span> <span class="nav-text">3. 반복문</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-for-문"><span class="nav-number">1.6.</span> <span class="nav-text">3-1. for 문</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-while-문"><span class="nav-number">1.7.</span> <span class="nav-text">3-2. while 문</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-do…while-문"><span class="nav-number">1.8.</span> <span class="nav-text">3-3. do…while 문</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-break-문"><span class="nav-number">1.9.</span> <span class="nav-text">4. break 문</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-continue-문"><span class="nav-number">1.10.</span> <span class="nav-text">5. continue 문</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-변수의-생명-주기"><span class="nav-number">1.</span> <span class="nav-text">1. 변수의 생명 주기</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-지역-변수의-생명-주기"><span class="nav-number">1.1.</span> <span class="nav-text">1-1. 지역 변수의 생명 주기</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-전역-변수의-생명-주기"><span class="nav-number">1.2.</span> <span class="nav-text">1-2. 전역 변수의 생명 주기</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-전역-변수의-문제점"><span class="nav-number">2.</span> <span class="nav-text">2. 전역 변수의 문제점</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-전역-변수-사용-억제-방법"><span class="nav-number">3.</span> <span class="nav-text">3. 전역 변수 사용 억제 방법</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-즉시-실행-함수"><span class="nav-number">3.1.</span> <span class="nav-text">3-1. 즉시 실행 함수</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-네임-스페이스-객체"><span class="nav-number">3.2.</span> <span class="nav-text">3-2. 네임 스페이스 객체</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-모듈-패턴"><span class="nav-number">3.3.</span> <span class="nav-text">3-3. 모듈 패턴</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-ES6-모듈"><span class="nav-number">3.4.</span> <span class="nav-text">3-4. ES6 모듈</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
