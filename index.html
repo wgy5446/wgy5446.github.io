@@ -172,10 +172,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-03-09 22:06:37 / Modified: 22:55:20" itemprop="dateCreated datePublished" datetime="2020-03-09T22:06:37+09:00">2020-03-09</time>
+              <time title="Created: 2020-03-09 22:06:37" itemprop="dateCreated datePublished" datetime="2020-03-09T22:06:37+09:00">2020-03-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-10 23:06:11" itemprop="dateModified" datetime="2020-03-10T23:06:11+09:00">2020-03-10</time>
+              </span>
 
           
 
@@ -233,6 +239,45 @@
 <h3 id="6-2-Object-생성자-함수에-의해-생성된-객체의-프로토타입"><a href="#6-2-Object-생성자-함수에-의해-생성된-객체의-프로토타입" class="headerlink" title="6-2. Object 생성자 함수에 의해 생성된 객체의 프로토타입"></a>6-2. Object 생성자 함수에 의해 생성된 객체의 프로토타입</h3><p>명시적으로 Object 생성자 함수를 호출하여 객체를 생성하면 빈 객체가 생성된다. Object 생성자 함수를 호출하면 객체 리터럴과 마찬가지로 추상 연산 ObjectCreate를 호출한다. 이때 Object 생성자 함수에 의해 생성되는 객체의 프로토타입은 Object.prototype이다. </p>
 <hr>
 <h3 id="6-3-생성자-함수에-의해-생성된-객체의-프로토타입"><a href="#6-3-생성자-함수에-의해-생성된-객체의-프로토타입" class="headerlink" title="6-3. 생성자 함수에 의해 생성된 객체의 프로토타입"></a>6-3. 생성자 함수에 의해 생성된 객체의 프로토타입</h3><p>new 연산자와 함께 생성자 함수를 호출하여 인스턴스를 생성하면 다른 객체 방식과 마찬가지로 추상 연산 ObjectCreate를 호출한다. 이때 추상 연산 ObjectCreate에 전달되는 프로토타입은 생성자 함수의 prototype 프로퍼티에 바인딩되어 있는 객체이다. 즉, 생성자 함수에 의해 생성되는 객체의 프로토타입은 생성자 함수의 prototype 프로퍼티에 바인딩되어 있는 객체이다. 빌트인 객체인 Object 생성자 함수와 더불어 생성된 프로토타입 Object.prototype은 다양한 빌트인 메소드(hasOwnProperty, propertyIsEnumerable 등)를 갖고 있다.</p>
+<hr>
+<h2 id="7-프로토타입-체인"><a href="#7-프로토타입-체인" class="headerlink" title="7. 프로토타입 체인"></a>7. 프로토타입 체인</h2><p>자바스크립트는 객체의 프로퍼티에 접근하려고 할 때 해당 객체에 접근하려는 프로퍼티가 없다면 <strong>proto</strong>접근자 프로퍼티가 가리키는 링크를 따라 잔신의 부모 역할을 하는 프로토타입의 프로퍼티를 순차적으로 검색한다. 이것을 프로토타입 체인이라 한다. 프로토타입 체인은 자바스크립트가 객체 지향 프로그래밍의 상속을 구현하는 메커니즘이다.</p>
+<hr>
+<h2 id="8-캡슐화"><a href="#8-캡슐화" class="headerlink" title="8. 캡슐화"></a>8. 캡슐화</h2><p>캘슐화는 정보의 일부를 외부에 감추어 은닉하는 것을 말한다. 즉, 외부에 공개할 필요가 없는 구현의 일부를 외부에 노출되지 않도록 감추어 적절치 못한 접근으로부터 정보를 보호하고 객체간의 상호 의존성, 즉 결합도를 낮추는 효과가 얻는다.</p>
+<hr>
+<h2 id="9-오버라이딩과-프로퍼티-쉐도잉"><a href="#9-오버라이딩과-프로퍼티-쉐도잉" class="headerlink" title="9. 오버라이딩과 프로퍼티 쉐도잉"></a>9. 오버라이딩과 프로퍼티 쉐도잉</h2><p>오버라이딩은 상위 클래스가 가지고 있는 메소드를 하위 클래스가 재정의하여 사용하는 방식이다. 프로토타입 프로퍼티와 같은 이름의 프로퍼티를 인스턴스에 추가하면 프로토타입 체인을 따라 프로토타입 프로퍼티를 검색하여 프로토타입 프로퍼티를 덮어쓰는 것이 아니라 인스턴스 프로퍼티로 추가한다. 이때 인스턴스 메소드 sayHello는 프로토타입 메소드 sayHello를 오버라이딩하였고 프로토타입 메소드 sayHello는 가려진다.</p>
+<hr>
+<h2 id="10-프로토타입의-교체"><a href="#10-프로토타입의-교체" class="headerlink" title="10. 프로토타입의 교체"></a>10. 프로토타입의 교체</h2><p>프로토타입은 생성자 함수 또는 인스턴스에 의해 교체할 수 있다.</p>
+<hr>
+<h3 id="10-1-생성자-함수에-의한-프로토타입의-교체"><a href="#10-1-생성자-함수에-의한-프로토타입의-교체" class="headerlink" title="10-1. 생성자 함수에 의한 프로토타입의 교체"></a>10-1. 생성자 함수에 의한 프로토타입의 교체</h3><p>생성자 함수가 생성할 객체의 프로토타입을 객체 리터럴로 교체한 객체 리터럴에는 constructor 프로퍼티가 없다. constructor 프로퍼티는 자바스크립트 엔진이 프로토타입을 생성할 때 암묵적으로 추가한 프로퍼티이다. 프로토타입을 교체하면 constructor 프로퍼티와 생성자 함수 간의 링크가 파괴된다. 프로토타입으로 교체한 객체 리터럴에 constructor 프로퍼티를 추가하여 프로토타입의 constructor 프로퍼티를 되살린다.</p>
+<hr>
+<h3 id="10-2-인스턴스에-의한-프로토타입의-교체"><a href="#10-2-인스턴스에-의한-프로토타입의-교체" class="headerlink" title="10-2. 인스턴스에 의한 프로토타입의 교체"></a>10-2. 인스턴스에 의한 프로토타입의 교체</h3><p>프로토타입은 생성자 함수의 prototype 프로퍼티 뿐만 아니라 인스턴스의 <strong>proto</strong>접근자 프로퍼티로 접근할 수 있고 프로토타입을 교체할 수 있다. 생성자 함수의 prototype 프로퍼티에 다른 임의의 객체를 바인딩하는 것은 미래에 생성할 인스턴스의 프로토타입을 교체할 수 있다. 생성자 함수에 의한 프로토타입 교체와 마찬가지로 인스턴스에 의한 포로토타입 교체도 constructor 프로퍼티와 생성자 함수 간의 연결을 파괴한다. 프로토타입으로 교체한 객체 리터럴에 constructor 프로퍼티를 추가하고 생성자 함수의 prototype 프로퍼티를 재설정하여 파괴된 생성자 함수와 프로토타입 간의 연결을 되살릴 수 있다.</p>
+<hr>
+<h2 id="11-instanceof연산자"><a href="#11-instanceof연산자" class="headerlink" title="11. instanceof연산자"></a>11. instanceof연산자</h2><p>instanceof연산자는 이항 연산자로서 좌변에 객체를 가리키는 식별자,우변에 생성자 함수를 가리키는 식별자를 피연산자로 받는다. 만약 우변의 피연산자가 함수가 아닌 경우, TypeError가 발생한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">객체 instancof 생성자 함수</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="12-직접-상속"><a href="#12-직접-상속" class="headerlink" title="12. 직접 상속"></a>12. 직접 상속</h2><h3 id="12-1-Object-create에-의한-직접-상속"><a href="#12-1-Object-create에-의한-직접-상속" class="headerlink" title="12-1. Object.create에 의한 직접 상속"></a>12-1. Object.create에 의한 직접 상속</h3><p>Object.create 메소드는 명시적으로 프로토타입을 지정하여 새로운 객체를 생성한다. Object.create 메소드도 다른 객체 생성 방식과 마찬가지로 추상 연산 ObjectCreate를 호출한다. Object.create 메소드의 첫번째 매개변수에는 생성할 객체의 프로토타입으로 지정할 객체를 전달한다. 두번째 매개변수에는 생성할 객체의 프로퍼티를 갖는 객체를 전달한다.</p>
+<ul>
+<li>Object.create 메소드의 장점<ul>
+<li>new 연산자가 없이도 객체를 생성할 수 있다.</li>
+<li>프로토타입을 지정하면서 객체를 생성할 수 있다. 이때 생성자 함수와 프로토타입 간의 링크가 파괴되지 않는다.</li>
+<li>객체 리터럴에 의해 생성된 객체도 특정 객체를 상속받을 수 있다.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="12-2-객체-리터럴-내부에서-proto에-의한-직접-상속"><a href="#12-2-객체-리터럴-내부에서-proto에-의한-직접-상속" class="headerlink" title="12-2. 객체 리터럴 내부에서 proto에 의한 직접 상속"></a>12-2. 객체 리터럴 내부에서 <strong>proto</strong>에 의한 직접 상속</h3><p>ES6에서는 객체 리터럴 내부에서 <strong>proto</strong>접근자 프로퍼티를 사용하여 직접 상속을 구현할 수 있다.</p>
+<hr>
+<h2 id="13-정적-프로퍼티-메소드"><a href="#13-정적-프로퍼티-메소드" class="headerlink" title="13. 정적 프로퍼티/메소드"></a>13. 정적 프로퍼티/메소드</h2><p>정적프로퍼티/메소드는 생성자 함수로 인수턴스를 생성하지 않아도 참조/호출할 수 있는 프로퍼티/메소드를 말한다.</p>
+<hr>
+<h2 id="14-프로퍼티-존재-확인"><a href="#14-프로퍼티-존재-확인" class="headerlink" title="14. 프로퍼티 존재 확인"></a>14. 프로퍼티 존재 확인</h2><p>in 연산자는 객체 내에 프로퍼티가 존재하는지 여부를 확인한다. 그리고 in 연산자는 확인 대상 객체의 프로퍼티 뿐만 아니라 확인 대상 객체가 상속받은 모든 프로토타입의 프로퍼티를 확인하므로 주의 한다.</p>
+<hr>
+<h2 id="15-프로퍼티-열거"><a href="#15-프로퍼티-열거" class="headerlink" title="15. 프로퍼티 열거"></a>15. 프로퍼티 열거</h2><h3 id="15-1-for…in-문"><a href="#15-1-for…in-문" class="headerlink" title="15-1. for…in 문"></a>15-1. for…in 문</h3><p>객체의 모든 프로퍼티를 순회하며 열거하려면 for…in 문을 사용한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for (변수선언문 in  객체) &#123; ... &#125;</span><br></pre></td></tr></table></figure>
+<p>for…in 문은 객체의 프로퍼티 개수만큼 반복하며 for…in 문의 변수 선언문에서 선언한 변수에 프로퍼티 키를 할당한다. for…in 문은 프로퍼티 키가 심볼인 프로퍼티는 열거하지 않는다. 배열에는 for…in 문을 사용하지 말고 일반적인 for 문이나 for…of 문 또는 Array.prototype.forEach 메소드를 사용하기를 권장한다.</p>
+<hr>
+<h3 id="15-2-Object-keys-values-entries-메소드"><a href="#15-2-Object-keys-values-entries-메소드" class="headerlink" title="15-2. Object.keys/values/entries 메소드"></a>15-2. Object.keys/values/entries 메소드</h3><p>객체 자신의 프로퍼티만을 열거하기 위해서는 for…in 문을 사용하는 것 보다 Object.keys/values/entries 메소드를 사용하는 것을 권장한다.<br>Object.keys 메소드는 객체 자신의 열거 가능한(enumerable) 프로퍼티 키를 배열로 반환한다.ES8에서 도입된 Object.values 메소드는 객체 자신의 열거 가능한 프로퍼티 값을 배열로 반환한다. ES8에서 도입된 Object.entries 메소드는 객체 자신의 열거 가능한 프로퍼티 키와 값의 쌍의 배열을 배열에 담아 반환한다.</p>
+<hr>
 
       
     </div>
