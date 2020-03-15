@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"wgy5446.github.io","root":"/","scheme":"Muse","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="1. 일급 객체 무명의 리터럴로 생성할 수 있다. 즉, 런타임에 생성이 가능하다.      변수나 자료 구조에 저장할 수 있다. 함수의 매개 변수에게 전달할 수 있다. 함수의 결과값으로 반환할 수 있다.   2. 함수 객체의 프로퍼티함수는 객체이다. 따라서 함수도 르포퍼티를 가질 수 있다.  2-1. arguments 프로퍼티함수 객체의 arguments">
+  <meta name="description" content="1. Strict mode란?잠재적인 오류를 발생시키기 어려운 개발 환경을 만들고 그 환경에서 개발을 하는 것이 보다 근본적인 해결책이므로 이를 지원하기 위해 ES5부터 stict mode가 추가되었다. strict mode는 자바스크립트 언어의 문법을 보다 엄격히 적용하여 기존에는 무시되던 오류를 발생시킬 가능성이 높거나 자바스크립트 엔진의 최적화 작업에">
 <meta property="og:type" content="article">
-<meta property="og:title" content="함수와 일급 객체">
-<meta property="og:url" content="https://wgy5446.github.io/2020/03/%ED%95%A8%EC%88%98%EC%99%80%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4/index.html">
+<meta property="og:title" content="Strict mode">
+<meta property="og:url" content="https://wgy5446.github.io/2020/03/%EC%97%84%EA%B2%A9%EB%AA%A8%EB%93%9C/index.html">
 <meta property="og:site_name" content="John">
-<meta property="og:description" content="1. 일급 객체 무명의 리터럴로 생성할 수 있다. 즉, 런타임에 생성이 가능하다.      변수나 자료 구조에 저장할 수 있다. 함수의 매개 변수에게 전달할 수 있다. 함수의 결과값으로 반환할 수 있다.   2. 함수 객체의 프로퍼티함수는 객체이다. 따라서 함수도 르포퍼티를 가질 수 있다.  2-1. arguments 프로퍼티함수 객체의 arguments">
+<meta property="og:description" content="1. Strict mode란?잠재적인 오류를 발생시키기 어려운 개발 환경을 만들고 그 환경에서 개발을 하는 것이 보다 근본적인 해결책이므로 이를 지원하기 위해 ES5부터 stict mode가 추가되었다. strict mode는 자바스크립트 언어의 문법을 보다 엄격히 적용하여 기존에는 무시되던 오류를 발생시킬 가능성이 높거나 자바스크립트 엔진의 최적화 작업에">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-03-05T12:42:39.000Z">
-<meta property="article:modified_time" content="2020-03-05T12:58:59.723Z">
+<meta property="article:published_time" content="2020-03-15T12:09:56.000Z">
+<meta property="article:modified_time" content="2020-03-15T12:26:11.071Z">
 <meta property="article:author" content="wgy5446">
 <meta property="article:tag" content="javascript">
 <meta property="article:tag" content=" js">
@@ -39,7 +39,7 @@
 <meta property="article:tag" content=" leopold">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://wgy5446.github.io/2020/03/%ED%95%A8%EC%88%98%EC%99%80%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4/">
+<link rel="canonical" href="https://wgy5446.github.io/2020/03/%EC%97%84%EA%B2%A9%EB%AA%A8%EB%93%9C/">
 
 
 <script id="page-configurations">
@@ -51,7 +51,7 @@
   };
 </script>
 
-  <title>함수와 일급 객체 | John</title>
+  <title>Strict mode | John</title>
   
 
 
@@ -151,7 +151,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/03/%ED%95%A8%EC%88%98%EC%99%80%EC%9D%BC%EA%B8%89%EA%B0%9D%EC%B2%B4/">
+    <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/03/%EC%97%84%EA%B2%A9%EB%AA%A8%EB%93%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -164,7 +164,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          함수와 일급 객체
+          Strict mode
         </h1>
 
         <div class="post-meta">
@@ -175,7 +175,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-03-05 21:42:39 / Modified: 21:58:59" itemprop="dateCreated datePublished" datetime="2020-03-05T21:42:39+09:00">2020-03-05</time>
+              <time title="Created: 2020-03-15 21:09:56 / Modified: 21:26:11" itemprop="dateCreated datePublished" datetime="2020-03-15T21:09:56+09:00">2020-03-15</time>
             </span>
 
           
@@ -189,26 +189,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-일급-객체"><a href="#1-일급-객체" class="headerlink" title="1. 일급 객체"></a>1. 일급 객체</h2><ul>
-<li>무명의 리터럴로 생성할 수 있다. 즉, 런타임에 생성이 가능하다.     </li>
-<li>변수나 자료 구조에 저장할 수 있다.</li>
-<li>함수의 매개 변수에게 전달할 수 있다.</li>
-<li>함수의 결과값으로 반환할 수 있다.</li>
-</ul>
+        <h2 id="1-Strict-mode란"><a href="#1-Strict-mode란" class="headerlink" title="1. Strict mode란?"></a>1. Strict mode란?</h2><p>잠재적인 오류를 발생시키기 어려운 개발 환경을 만들고 그 환경에서 개발을 하는 것이 보다 근본적인 해결책이므로 이를 지원하기 위해 ES5부터 stict mode가 추가되었다. strict mode는 자바스크립트 언어의 문법을 보다 엄격히 적용하여 기존에는 무시되던 오류를 발생시킬 가능성이 높거나 자바스크립트 엔진의 최적화 작업에 문제를 일으킬 수 있는 코드에 대해 명시적인 에러를 발생시킨다.</p>
 <hr>
-<h2 id="2-함수-객체의-프로퍼티"><a href="#2-함수-객체의-프로퍼티" class="headerlink" title="2. 함수 객체의 프로퍼티"></a>2. 함수 객체의 프로퍼티</h2><p>함수는 객체이다. 따라서 함수도 르포퍼티를 가질 수 있다.</p>
+<h2 id="2-Strict-mode의-적용"><a href="#2-Strict-mode의-적용" class="headerlink" title="2. Strict mode의 적용"></a>2. Strict mode의 적용</h2><p>Strict mode를 적용하려면 전역의 선두 또는 함수 몸체의 선두에 ‘use strict’;를 추가한다. 전역의 선두에 추가하면 스크립트 전체에 strict mode가 적용된다.</p>
 <hr>
-<h3 id="2-1-arguments-프로퍼티"><a href="#2-1-arguments-프로퍼티" class="headerlink" title="2-1. arguments 프로퍼티"></a>2-1. arguments 프로퍼티</h3><p>함수 객체의 arguments 프로퍼티 값은 arguments 객체이다. arguments 객체는 함수 호출 시 전달된 인수(argument)들의 정보를 담고 있는 순회 가능한(iterable) 유사 배열 객체(array-like object)이며 함수 내부에서 지역 변수처럼 사용된다.</p>
+<h2 id="3-전역에-Strict-mode를-적용하는-것은-피하자"><a href="#3-전역에-Strict-mode를-적용하는-것은-피하자" class="headerlink" title="3. 전역에 Strict mode를 적용하는 것은 피하자."></a>3. 전역에 Strict mode를 적용하는 것은 피하자.</h2><p>strict mode 스크립트와 non-strict mode 스크립트를 혼용하는 것은 오류를 발생시킬 수 있다. 특히 외부 서드 파티 라이브러리를 사용하는 경우, 라이브러리가 non-strict mode일 경우도 있기 때문에 전역에 strict mode를 적용하는 것은 바람직하지 않다. 이러한 경우, 즉시 실행 함수로 스크립트 전체를 감싸서 스코프를 구분하고 즉시 실행 함수의 선두에 strict mode를 적용한다.</p>
 <hr>
-<h3 id="2-2-caller-프로퍼티"><a href="#2-2-caller-프로퍼티" class="headerlink" title="2-2. caller 프로퍼티"></a>2-2. caller 프로퍼티</h3><p>caller 프로퍼티는 ECMAScript 스펙에 포함되지 않은 비표준 프로퍼티이다. 이후 표준화될 예정도 없는 프로퍼티이므로 사용하지 말고 참고로만 알아두면 된다. 함수 객체의 caller 프로퍼티는 함수 자신을 호출한 함수를 가리킨다.</p>
+<h2 id="4-함수-단위로-Strict-mode를-적용하는-것도-피하자"><a href="#4-함수-단위로-Strict-mode를-적용하는-것도-피하자" class="headerlink" title="4. 함수 단위로 Strict mode를 적용하는 것도 피하자."></a>4. 함수 단위로 Strict mode를 적용하는 것도 피하자.</h2><p>함수 단위로 strict mode를 적용할 수도 있다. 그러나 어떤 함수는 strict mode를 적용하고 어떤 함수는 strict mode를 적용하지 않는 것은 바람직하지 않으며 모든 함수에 일일이 strict mode를 적용하는 것은 번거로운 일이다. 그래서 strict mode는 즉시 실행 함수로 감싼 스크립트 단위로 적용하는 것이 바람직하다.</p>
 <hr>
-<h3 id="2-3-length-프로퍼티"><a href="#2-3-length-프로퍼티" class="headerlink" title="2-3. length 프로퍼티"></a>2-3. length 프로퍼티</h3><p>함수 객체의 length 프로퍼티는 함수 정의 시 선언한 매개변수의 개수를 가리킨다.</p>
+<h2 id="5-Strict-mode가-발생시키는-에러"><a href="#5-Strict-mode가-발생시키는-에러" class="headerlink" title="5. Strict mode가 발생시키는 에러"></a>5. Strict mode가 발생시키는 에러</h2><h3 id="5-1-암묵적-전역"><a href="#5-1-암묵적-전역" class="headerlink" title="5-1. 암묵적 전역"></a>5-1. 암묵적 전역</h3><p>선언하지 않은 변수를 참조하면 ReferenceError가 발생한다.</p>
 <hr>
-<h3 id="2-4-name-프로퍼티"><a href="#2-4-name-프로퍼티" class="headerlink" title="2-4. name 프로퍼티"></a>2-4. name 프로퍼티</h3><p>함수 객체의 name 프로퍼티는 함수 이름을 나타낸다. name 프로퍼티는 ES6 이전까지는 비표준이었지만 ES6에서 정식 표준이 되었다.<br>name 프로퍼티는 ES5와 ES6에서 동작을 달리 하므로 주의 해야 한다. 익명 함수 표현식의 경우, ES5에서 name 프로퍼티는 빈 문자열을 값으로 갖는다. 하지만 ES6에서는 함수 객체를 가리키는 변수 이름을 값으로 갖는다.</p>
+<h3 id="5-2-변수-함수-매개변수의-삭제"><a href="#5-2-변수-함수-매개변수의-삭제" class="headerlink" title="5-2. 변수, 함수, 매개변수의 삭제"></a>5-2. 변수, 함수, 매개변수의 삭제</h3><p>delete 연산자로 변수, 함수, 매개변수를 삭제하면 SyntaxError가 발생한다.</p>
 <hr>
-<h3 id="2-5-proto접근자-프로퍼티"><a href="#2-5-proto접근자-프로퍼티" class="headerlink" title="2-5. proto접근자 프로퍼티"></a>2-5. <strong>proto</strong>접근자 프로퍼티</h3><p>모든 객체는 [[Prototype]]이라는 내부 슬롯을 갖는다. [[Prototype]] 내부 슬롯은 객체 지향 프로그래밍의 상속을 구현하는 프로토타입 객체를 가리킨다.</p>
+<h3 id="5-3-매개변수-이름의-중복"><a href="#5-3-매개변수-이름의-중복" class="headerlink" title="5-3. 매개변수 이름의 중복"></a>5-3. 매개변수 이름의 중복</h3><p>중복된 함수 매개변수 이름을 사용하면 SyntaxError가 발생한다.</p>
 <hr>
-<h3 id="2-6-prototype-프로퍼티"><a href="#2-6-prototype-프로퍼티" class="headerlink" title="2-6. prototype 프로퍼티"></a>2-6. prototype 프로퍼티</h3><p>prototype 프로퍼티는 함수 객체만이 소유하는 프로퍼티이다. 일반 객체에는 prototype 프로퍼티가 없다.<br>prototype 프로퍼티는 함수가 객체를 생성하는 생성자 함수로 사용될 때, 생성자 함수가 생성할 인스턴스의 프로토타입 객체를 가리킨다.</p>
+<h3 id="5-4-with-문의-사용"><a href="#5-4-with-문의-사용" class="headerlink" title="5-4. with 문의 사용"></a>5-4. with 문의 사용</h3><p>with 문을 사용하면 SyntaxError가 발생한다.</p>
+<hr>
+<h2 id="6-Strict-mode-적용에-의한-변화"><a href="#6-Strict-mode-적용에-의한-변화" class="headerlink" title="6. Strict mode 적용에 의한 변화"></a>6. Strict mode 적용에 의한 변화</h2><h3 id="6-1-일반-함수의-this"><a href="#6-1-일반-함수의-this" class="headerlink" title="6-1. 일반 함수의 this"></a>6-1. 일반 함수의 this</h3><p>strict mode 에서 함수를 일반 함수로서 호출하면 this에 undefined가 바인딩된다.</p>
+<hr>
+<h3 id="6-2-arguments-객체"><a href="#6-2-arguments-객체" class="headerlink" title="6-2. arguments 객체"></a>6-2. arguments 객체</h3><p>strict mode 에서는 매개변수에 전달된 인수를 재할당하여 변경하여도 arguments 객체에 반영되지 않는다.</p>
 <hr>
 
     </div>
@@ -225,13 +224,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/%EC%83%9D%EC%84%B1%EC%9E%90%ED%95%A8%EC%88%98%EC%97%90%EC%9D%98%ED%95%9C%EA%B0%9D%EC%B2%B4%EC%83%9D%EC%84%B1/" rel="prev" title="생성자 함수에 의한 객체 생성">
-      <i class="fa fa-chevron-left"></i> 생성자 함수에 의한 객체 생성
+    <a href="/2020/03/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/" rel="prev" title="Prototype">
+      <i class="fa fa-chevron-left"></i> Prototype
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/" rel="next" title="Prototype">
-      Prototype <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -291,7 +287,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-일급-객체"><span class="nav-number">1.</span> <span class="nav-text">1. 일급 객체</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-함수-객체의-프로퍼티"><span class="nav-number">2.</span> <span class="nav-text">2. 함수 객체의 프로퍼티</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-arguments-프로퍼티"><span class="nav-number">2.1.</span> <span class="nav-text">2-1. arguments 프로퍼티</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-caller-프로퍼티"><span class="nav-number">2.2.</span> <span class="nav-text">2-2. caller 프로퍼티</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-length-프로퍼티"><span class="nav-number">2.3.</span> <span class="nav-text">2-3. length 프로퍼티</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-name-프로퍼티"><span class="nav-number">2.4.</span> <span class="nav-text">2-4. name 프로퍼티</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-proto접근자-프로퍼티"><span class="nav-number">2.5.</span> <span class="nav-text">2-5. proto접근자 프로퍼티</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-prototype-프로퍼티"><span class="nav-number">2.6.</span> <span class="nav-text">2-6. prototype 프로퍼티</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Strict-mode란"><span class="nav-number">1.</span> <span class="nav-text">1. Strict mode란?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Strict-mode의-적용"><span class="nav-number">2.</span> <span class="nav-text">2. Strict mode의 적용</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-전역에-Strict-mode를-적용하는-것은-피하자"><span class="nav-number">3.</span> <span class="nav-text">3. 전역에 Strict mode를 적용하는 것은 피하자.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-함수-단위로-Strict-mode를-적용하는-것도-피하자"><span class="nav-number">4.</span> <span class="nav-text">4. 함수 단위로 Strict mode를 적용하는 것도 피하자.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Strict-mode가-발생시키는-에러"><span class="nav-number">5.</span> <span class="nav-text">5. Strict mode가 발생시키는 에러</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-암묵적-전역"><span class="nav-number">5.1.</span> <span class="nav-text">5-1. 암묵적 전역</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-변수-함수-매개변수의-삭제"><span class="nav-number">5.2.</span> <span class="nav-text">5-2. 변수, 함수, 매개변수의 삭제</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-매개변수-이름의-중복"><span class="nav-number">5.3.</span> <span class="nav-text">5-3. 매개변수 이름의 중복</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-with-문의-사용"><span class="nav-number">5.4.</span> <span class="nav-text">5-4. with 문의 사용</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Strict-mode-적용에-의한-변화"><span class="nav-number">6.</span> <span class="nav-text">6. Strict mode 적용에 의한 변화</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-일반-함수의-this"><span class="nav-number">6.1.</span> <span class="nav-text">6-1. 일반 함수의 this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-arguments-객체"><span class="nav-number">6.2.</span> <span class="nav-text">6-2. arguments 객체</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
