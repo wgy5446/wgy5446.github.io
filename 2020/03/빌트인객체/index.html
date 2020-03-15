@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"wgy5446.github.io","root":"/","scheme":"Muse","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="1. 자바스크립트 객체의 분류 표준 빌트인 객체  표준 빌트인 객체는 ECMAScript 사양에 정의된 객체를 말하며 애플리케이션 전역의 공통 기능을 제공한다. 표준 빌트인 객체는 ECMAScript 사양에 정의된 객체이므로 자바스크립트 실행 환경(브라우저 또는 Node.js 환경)과 관계없이 언제나 사용할 수 있다. 표준 빌트인 객체는 전역 객체의 프로퍼">
+<meta property="og:type" content="article">
+<meta property="og:title" content="빌트인 객체">
+<meta property="og:url" content="https://wgy5446.github.io/2020/03/%EB%B9%8C%ED%8A%B8%EC%9D%B8%EA%B0%9D%EC%B2%B4/index.html">
+<meta property="og:site_name" content="John">
+<meta property="og:description" content="1. 자바스크립트 객체의 분류 표준 빌트인 객체  표준 빌트인 객체는 ECMAScript 사양에 정의된 객체를 말하며 애플리케이션 전역의 공통 기능을 제공한다. 표준 빌트인 객체는 ECMAScript 사양에 정의된 객체이므로 자바스크립트 실행 환경(브라우저 또는 Node.js 환경)과 관계없이 언제나 사용할 수 있다. 표준 빌트인 객체는 전역 객체의 프로퍼">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-15T12:31:24.000Z">
+<meta property="article:modified_time" content="2020-03-15T13:43:37.730Z">
+<meta property="article:author" content="wgy5446">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content=" js">
+<meta property="article:tag" content=" react">
+<meta property="article:tag" content=" anqular">
+<meta property="article:tag" content=" hhkb">
+<meta property="article:tag" content=" realforce">
+<meta property="article:tag" content=" leopold">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://wgy5446.github.io/2020/03/%EB%B9%8C%ED%8A%B8%EC%9D%B8%EA%B0%9D%EC%B2%B4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>빌트인 객체 | John</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">John</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">John</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/03/%EB%B9%8C%ED%8A%B8%EC%9D%B8%EA%B0%9D%EC%B2%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wgy5446">
+      <meta itemprop="description" content="All story about js">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="John">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          빌트인 객체
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-03-15 21:31:24 / Modified: 22:43:37" itemprop="dateCreated datePublished" datetime="2020-03-15T21:31:24+09:00">2020-03-15</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="1-자바스크립트-객체의-분류"><a href="#1-자바스크립트-객체의-분류" class="headerlink" title="1. 자바스크립트 객체의 분류"></a>1. 자바스크립트 객체의 분류</h2><ul>
+<li><p>표준 빌트인 객체</p>
+<ul>
+<li>표준 빌트인 객체는 ECMAScript 사양에 정의된 객체를 말하며 애플리케이션 전역의 공통 기능을 제공한다. 표준 빌트인 객체는 ECMAScript 사양에 정의된 객체이므로 자바스크립트 실행 환경(브라우저 또는 Node.js 환경)과 관계없이 언제나 사용할 수 있다. 표준 빌트인 객체는 전역 객체의 프로퍼티로서 제공된다. 따라서 별도의 선언없이 전역 변수처럼 언제나 참조할 수 있다.</li>
+</ul>
+</li>
+<li><p>호스트 객체</p>
+<ul>
+<li>호스트 객체는 ECMAScript 사양에 정의되어 있지 않지만 자바스크립트 실행 환경(브라우저 환경 또는 Node.js 환경. “3.1 자바스크립트 실행 환경” 참고)에서 추가적으로 제공하는 객체를 말한다.<br>브라우저 환경에서는 DOM, BOM, Canvas, XMLHttpRequest, fetch, requestAnimationFrame, SVG, Web Storage, Web Component, Web worker와 같은 클라이언트 사이드 Web API를 호스트 객체로 제공하고 Node.js 환경에서는 Node.js 고유의 API를 호스트 객체로 제공한다.</li>
+</ul>
+</li>
+<li><p>사용자 정의 객체</p>
+<ul>
+<li>사용자 정의 객체는 표준 빌트인 객체와 호스트 객체처럼 기본 제공되는 객체가 아닌 사용자가 직접 정의한 객체를 말한다.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="2-표준-빌트인-객체"><a href="#2-표준-빌트인-객체" class="headerlink" title="2. 표준 빌트인 객체"></a>2. 표준 빌트인 객체</h2><p>Math, Reflect, JSON을 제외한 표준 빌트인 객체는 모두 인스턴스를 생성할 수 있는 생성자 함수 객체이다. 생성자 함수 객체인 표준 빌트인 객체는 프로토타입 메소드와 정적 메소드를 제공하고 생성자 함수 객체가 아닌 표준 빌트인 객체는 정적 메소드만을 제공한다.</p>
+<hr>
+<h2 id="3-원시값과-래퍼-객체"><a href="#3-원시값과-래퍼-객체" class="headerlink" title="3. 원시값과 래퍼 객체"></a>3. 원시값과 래퍼 객체</h2><p>원시값인 문자열, 숫자, 불리언 값의 경우, 마치 객체처럼 이들 원시값에 대해 마침표 표기법(또는 대괄호 표기법)으로 접근하면 자바스크립트 엔진이 일시적으로 원시값을 연관된 객체로 변환해 주기 때문이다. 즉, 원시값을 객체처럼 사용하면 자바스크립트 엔진은 암묵적으로 연관된 객체를 생성하고 생성된 객체로 프로퍼티에 접근하거나 메소드를 호출하고 다시 원시값으로 되돌린다.<br>이처럼 문자열, 숫자, 불리언 값에 대해 객체처럼 접근하면 생성되는 임시 객체를 레퍼 객체(wrapper object)라 한다.</p>
+<hr>
+<h2 id="4-전역-객체"><a href="#4-전역-객체" class="headerlink" title="4. 전역 객체"></a>4. 전역 객체</h2><p>전역 객체(Global Object)는 코드가 실행되기 이전 단계에 자바스크립트 엔진에 의해 어떤 객체보다도 먼저 생성되는 특수한 객체이며 어떤 객체에도 속하지 않은 최상위 객체이다.<br>전역 객체는 자바스크립트 환경에 따라 지칭하는 이름이 제각각이다. 브라우저 환경에서는 window가 전역 객체를 가리키지만 Node.js 환경에서는 global이 전역 객체를 가리킨다.</p>
+<ul>
+<li>전역 객체의 특징<ul>
+<li>전역 객체는 개발자가 의도적으로 생성할 수 없다. 즉, 전역 객체를 생성할 수 있는 생성자 함수가 제공되지 않는다.</li>
+<li>전역 객체의 프로퍼티를 참조할 때 window(또는 global)를 생략할 수 있다.</li>
+<li>전역 객체는 Object, String, Number, Boolean, Function, Array, RegExp, Date, Math, Promise와 같은 모든 표준 빌트인 객체를 프로퍼티로 가지고 있다.</li>
+<li>자바스크립트 실행 환경에 따라 추가적으로 프로퍼티와 메소드를 갖는다. 브라우저 환경에서는 DOM, BOM, Canvas, XMLHttpRequest, fetch, requestAnimationFrame, SVG, Web Storage, Web Component, Web worker와 같은 클라이언트 사이드 Web API를 호스트 객체로 제공하고 Node.js 환경에서는 Node.js 고유의 API를 호스트 객체로 제공한다.</li>
+<li>var 키워드로 선언한 전역 변수와 선언하지 않은 변수에 값을 할당한 암묵적 전역 그리고 전역 함수는 전역 객체의 프로퍼티가 된다.</li>
+<li>let이나 const 키워드로 선언한 전역 변수는 전역 객체의 프로퍼티가 아니다.</li>
+<li>브라우저 환경의 모든 자바스크립트 코드는 하나의 전역 객체 window를 공유한다.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="4-1-빌트인-전역-프로퍼티"><a href="#4-1-빌트인-전역-프로퍼티" class="headerlink" title="4-1. 빌트인 전역 프로퍼티"></a>4-1. 빌트인 전역 프로퍼티</h3><p>빌트인 전역 프로퍼티는 전역 객체의 프로퍼티를 의미한다. 주로 애플리케이션 전역에서 사용하는 값을 제공한한다.  </p>
+<hr>
+<h4 id="4-1-1-Infinity"><a href="#4-1-1-Infinity" class="headerlink" title="4-1-1. Infinity"></a>4-1-1. Infinity</h4><p>Infinity 프로퍼티는 양/음의 무한대를 나타내는 숫자값 Infinity를 갖는다.</p>
+<hr>
+<h4 id="4-1-2-NaN"><a href="#4-1-2-NaN" class="headerlink" title="4-1-2. NaN"></a>4-1-2. NaN</h4><p>NaN 프로퍼티는 숫자가 아님을 나타내는 숫자값 NaN을 갖는다. NaN 프로퍼티는 Number.NaN 프로퍼티와 같다.</p>
+<hr>
+<h4 id="4-1-3-undefined"><a href="#4-1-3-undefined" class="headerlink" title="4-1-3. undefined"></a>4-1-3. undefined</h4><p>undefined 프로퍼티는 원시 타입 undefined를 값으로 갖는다.</p>
+<hr>
+<h3 id="4-2-빌트인-전역-함수"><a href="#4-2-빌트인-전역-함수" class="headerlink" title="4-2. 빌트인 전역 함수"></a>4-2. 빌트인 전역 함수</h3><p>빌트인 전역 함수는 애플리케이션 전역에서 호출할 수 있는 빌트인 함수로서 전역 객체의 메소드이다.</p>
+<hr>
+<h4 id="4-2-1-eval"><a href="#4-2-1-eval" class="headerlink" title="4-2-1. eval"></a>4-2-1. eval</h4><p>문자열 형태로 매개변수에 전달된 코드를 런타임에 동적으로 평가하고 실행하여 결과값을 반환한다. 전달된 문자열 코드가 여러 개의 문으로 이루어져 있다면 모든 문을 실행 후 마지막 결과값을 반환한다.</p>
+<hr>
+<h4 id="4-2-2-isFinite"><a href="#4-2-2-isFinite" class="headerlink" title="4-2-2. isFinite"></a>4-2-2. isFinite</h4><p>매개 변수에 전달된 값이 정상적인 유한수인지 검사하여 그 결과를 불리언 타입으로 반환한다. 매개변수에 전달된 값이 숫자가 아닌 경우, 숫자로 타입을 변환한 후 검사를 수행한다.</p>
+<hr>
+<h4 id="4-2-3-isNaN"><a href="#4-2-3-isNaN" class="headerlink" title="4-2-3. isNaN"></a>4-2-3. isNaN</h4><p>매개변수에 전달된 값이 NaN인지 검사하여 그 결과를 불리런 타입으로 반환한다. 매개변수에 전달된 값이 숫자가 아닌 경우, 숫자로 타입을 변환한 후 검사를 수행한다.</p>
+<hr>
+<h4 id="4-2-4-parseFloat"><a href="#4-2-4-parseFloat" class="headerlink" title="4-2-4. parseFloat"></a>4-2-4. parseFloat</h4><p>매개변수에 전달된 문자열을 부동소수점 숫자로 변환하여 반환한다.</p>
+<hr>
+<h4 id="4-2-5-parseInt"><a href="#4-2-5-parseInt" class="headerlink" title="4-2-5. parseInt"></a>4-2-5. parseInt</h4><p>매개변수에 전달된 문자열을 정수형 숫자(Integer)로 해석(parsing)하여 반환한다. 반환값은 언제나 10진수이다.</p>
+<hr>
+<h4 id="4-2-6-encodeURI-decodeURI"><a href="#4-2-6-encodeURI-decodeURI" class="headerlink" title="4-2-6. encodeURI / decodeURI"></a>4-2-6. encodeURI / decodeURI</h4><p>encodeURI 함수는 매개변수로 전달된 URI를 인코딩한다. URI는 인터넷에 있는 자원을 나타내는 유일한 주소를 말한다. URI의 하위개념으로 URL, URN이 있다. 인코딩이란 URI의 문자들을 이스케이프 처리하는 것을 의미한다.</p>
+<hr>
+<h4 id="4-2-7-encodeURIComponent-decodeURIComponent"><a href="#4-2-7-encodeURIComponent-decodeURIComponent" class="headerlink" title="4-2-7. encodeURIComponent / decodeURIComponent"></a>4-2-7. encodeURIComponent / decodeURIComponent</h4><p>encodeURIComponent 함수는 매개변수로 전달된 URI(Uniform Resource Identifier) 구성 요소(component)를 인코딩한다. 여기서 인코딩이란 URI의 문자들을 이스케이프 처리하는 것을 의미한다. 단, 알파벳, 0~9의 숫자, - _ . ! ~ * ‘ ( ) 문자는 이스케이프 처리에서 제외된다. decodeURIComponent 함수는 매개변수로 전달된 URI 구성 요소를 디코딩한다.</p>
+<hr>
+<h3 id="4-3-암묵적-전역"><a href="#4-3-암묵적-전역" class="headerlink" title="4-3. 암묵적 전역"></a>4-3. 암묵적 전역</h3><p>foo 함수가 호출되면 자바스크립트 엔진은 변수 y에 값을 할당하기 위해 먼저 스코프 체인을 통해 선언된 변수인지 확인한다. 이때 foo 함수의 스코프와 전역 스코프 어디에서도 변수 y의 선언을 찾을 수 없으므로 참조 에러가 발생해야 한다. 하지만 자바스크립트 엔진은 y = 20을 window.y = 20으로 해석하여 전역 객체에 프로퍼티를 동적 생성한다. 결국 y는 전역 객체의 프로퍼티가 되어 마치 전역 변수처럼 동작한다. 이러한 현상을 암묵적 전역이라 한다.</p>
+<hr>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/%EC%97%84%EA%B2%A9%EB%AA%A8%EB%93%9C/" rel="prev" title="Strict mode">
+      <i class="fa fa-chevron-left"></i> Strict mode
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-자바스크립트-객체의-분류"><span class="nav-number">1.</span> <span class="nav-text">1. 자바스크립트 객체의 분류</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-표준-빌트인-객체"><span class="nav-number">2.</span> <span class="nav-text">2. 표준 빌트인 객체</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-원시값과-래퍼-객체"><span class="nav-number">3.</span> <span class="nav-text">3. 원시값과 래퍼 객체</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-전역-객체"><span class="nav-number">4.</span> <span class="nav-text">4. 전역 객체</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-빌트인-전역-프로퍼티"><span class="nav-number">4.1.</span> <span class="nav-text">4-1. 빌트인 전역 프로퍼티</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-1-Infinity"><span class="nav-number">4.1.1.</span> <span class="nav-text">4-1-1. Infinity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-2-NaN"><span class="nav-number">4.1.2.</span> <span class="nav-text">4-1-2. NaN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-3-undefined"><span class="nav-number">4.1.3.</span> <span class="nav-text">4-1-3. undefined</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-빌트인-전역-함수"><span class="nav-number">4.2.</span> <span class="nav-text">4-2. 빌트인 전역 함수</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-1-eval"><span class="nav-number">4.2.1.</span> <span class="nav-text">4-2-1. eval</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-2-isFinite"><span class="nav-number">4.2.2.</span> <span class="nav-text">4-2-2. isFinite</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-3-isNaN"><span class="nav-number">4.2.3.</span> <span class="nav-text">4-2-3. isNaN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-4-parseFloat"><span class="nav-number">4.2.4.</span> <span class="nav-text">4-2-4. parseFloat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-5-parseInt"><span class="nav-number">4.2.5.</span> <span class="nav-text">4-2-5. parseInt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-6-encodeURI-decodeURI"><span class="nav-number">4.2.6.</span> <span class="nav-text">4-2-6. encodeURI &#x2F; decodeURI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-7-encodeURIComponent-decodeURIComponent"><span class="nav-number">4.2.7.</span> <span class="nav-text">4-2-7. encodeURIComponent &#x2F; decodeURIComponent</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-암묵적-전역"><span class="nav-number">4.3.</span> <span class="nav-text">4-3. 암묵적 전역</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">wgy5446</p>
+  <div class="site-description" itemprop="description">All story about js</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wgy5446</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.1
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
