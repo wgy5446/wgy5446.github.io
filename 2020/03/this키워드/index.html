@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"wgy5446.github.io","root":"/","scheme":"Muse","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="All story about js">
+  <meta name="description" content="1. this 키워드this는 자신이 속한 객체 또는 자신이 생성할 인스턴스를 가리키는 자기 참조 변수이다. this를 통해 자신이 속한 객체 또는 자신이 생성할 인스턴스의 프로퍼티나 메소드를 참조할 수 있다. this가 가리키는 값, 즉 this 바인딩은 함수 호출 방식에 의해 동적으로 결정된다.  2. 함수 호출 방식과 this 바인딩this가 가리키는">
 <meta property="og:type" content="article">
-<meta property="og:title" content="this키워드">
+<meta property="og:title" content="this">
 <meta property="og:url" content="https://wgy5446.github.io/2020/03/this%ED%82%A4%EC%9B%8C%EB%93%9C/index.html">
 <meta property="og:site_name" content="John">
-<meta property="og:description" content="All story about js">
+<meta property="og:description" content="1. this 키워드this는 자신이 속한 객체 또는 자신이 생성할 인스턴스를 가리키는 자기 참조 변수이다. this를 통해 자신이 속한 객체 또는 자신이 생성할 인스턴스의 프로퍼티나 메소드를 참조할 수 있다. this가 가리키는 값, 즉 this 바인딩은 함수 호출 방식에 의해 동적으로 결정된다.  2. 함수 호출 방식과 this 바인딩this가 가리키는">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-03-15T13:45:05.000Z">
-<meta property="article:modified_time" content="2020-03-15T13:45:05.692Z">
+<meta property="article:published_time" content="2020-03-16T11:45:05.000Z">
+<meta property="article:modified_time" content="2020-03-16T12:20:49.529Z">
 <meta property="article:author" content="wgy5446">
 <meta property="article:tag" content="javascript">
 <meta property="article:tag" content=" js">
@@ -51,7 +51,7 @@
   };
 </script>
 
-  <title>this키워드 | John</title>
+  <title>this | John</title>
   
 
 
@@ -164,7 +164,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          this키워드
+          this
         </h1>
 
         <div class="post-meta">
@@ -173,8 +173,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-03-15 22:45:05" itemprop="dateCreated datePublished" datetime="2020-03-15T22:45:05+09:00">2020-03-15</time>
+              <time title="Created: 2020-03-16 20:45:05 / Modified: 21:20:49" itemprop="dateCreated datePublished" datetime="2020-03-16T20:45:05+09:00">2020-03-16</time>
             </span>
 
           
@@ -188,7 +189,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h2 id="1-this-키워드"><a href="#1-this-키워드" class="headerlink" title="1. this 키워드"></a>1. this 키워드</h2><p>this는 자신이 속한 객체 또는 자신이 생성할 인스턴스를 가리키는 자기 참조 변수이다. this를 통해 자신이 속한 객체 또는 자신이 생성할 인스턴스의 프로퍼티나 메소드를 참조할 수 있다. this가 가리키는 값, 즉 this 바인딩은 함수 호출 방식에 의해 동적으로 결정된다.</p>
+<hr>
+<h2 id="2-함수-호출-방식과-this-바인딩"><a href="#2-함수-호출-방식과-this-바인딩" class="headerlink" title="2. 함수 호출 방식과 this 바인딩"></a>2. 함수 호출 방식과 this 바인딩</h2><p>this가 가리키는 값, 즉 this 바인딩은 함수의 호출 방식, 즉 함수가 어떻게 호출되었는지에 따라 동적으로 결정된다.</p>
+<hr>
+<h3 id="2-1-일반-함수-호출"><a href="#2-1-일반-함수-호출" class="headerlink" title="2-1. 일반 함수 호출"></a>2-1. 일반 함수 호출</h3><p>기본적으로 this에는 전역 객체(Global object)가 바인딩된다. 즉, 일반 함수로 호출된 모든 함수(중첩 함수, 콜백 함수 포함) 내부의 this에는 전역 객체가 바인딩된다.</p>
+<hr>
+<h3 id="2-2-메소드-호출"><a href="#2-2-메소드-호출" class="headerlink" title="2-2. 메소드 호출"></a>2-2. 메소드 호출</h3><p>메소드 내부의 this는 메소드를 호출한 객체, 즉 메소드 이름 앞의 마침표(.) 연산자 앞에 기술한 객체에 바인딩된다.</p>
+<hr>
+<h3 id="2-3-생성자-함수-호출"><a href="#2-3-생성자-함수-호출" class="headerlink" title="2-3. 생성자 함수 호출"></a>2-3. 생성자 함수 호출</h3><p>생성자 함수 내부의 this에는 생성자 함수가 (미래에) 생성할 인스턴스가 바인딩된다.</p>
+<hr>
+<h3 id="2-4-Function-prototype-apply-call-bind-메소드에-의한-간접-호출"><a href="#2-4-Function-prototype-apply-call-bind-메소드에-의한-간접-호출" class="headerlink" title="2-4. Function.prototype.apply/call/bind 메소드에 의한 간접 호출"></a>2-4. Function.prototype.apply/call/bind 메소드에 의한 간접 호출</h3><p>apply와 call 메소드의 본질적인 기능은 함수를 호출하는 것이다. apply와 call 메소드는 함수를 호출하면서 첫번째 인수로 전달한 특정 객체를 호출한 함수의 this에 바인딩한다. Function.prototype.bind 메소드는 apply와 call 메소드와는 달리 함수를 호출하지 않고 this로 사용할 객체만을 전달한다. bind 메소드는 메소드의 this와 메소드 내부의 중첩 함수 또는 콜백 함수의 this가 불일치하는 문제를 해결하기 위해 유용하게 사용된다.</p>
+<hr>
+
     </div>
 
     
@@ -206,7 +219,10 @@
     <a href="/2020/03/%EB%B9%8C%ED%8A%B8%EC%9D%B8%EA%B0%9D%EC%B2%B4/" rel="prev" title="빌트인 객체">
       <i class="fa fa-chevron-left"></i> 빌트인 객체
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/%EC%8B%A4%ED%96%89%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/" rel="next" title="실행 컨텍스트">
+      실행 컨텍스트 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -266,6 +282,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-this-키워드"><span class="nav-number">1.</span> <span class="nav-text">1. this 키워드</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-함수-호출-방식과-this-바인딩"><span class="nav-number">2.</span> <span class="nav-text">2. 함수 호출 방식과 this 바인딩</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-일반-함수-호출"><span class="nav-number">2.1.</span> <span class="nav-text">2-1. 일반 함수 호출</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-메소드-호출"><span class="nav-number">2.2.</span> <span class="nav-text">2-2. 메소드 호출</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-생성자-함수-호출"><span class="nav-number">2.3.</span> <span class="nav-text">2-3. 생성자 함수 호출</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-Function-prototype-apply-call-bind-메소드에-의한-간접-호출"><span class="nav-number">2.4.</span> <span class="nav-text">2-4. Function.prototype.apply&#x2F;call&#x2F;bind 메소드에 의한 간접 호출</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -279,7 +296,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
