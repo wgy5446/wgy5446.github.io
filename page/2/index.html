@@ -149,6 +149,85 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/03/%EC%83%9D%EC%84%B1%EC%9E%90%ED%95%A8%EC%88%98%EC%97%90%EC%9D%98%ED%95%9C%EA%B0%9D%EC%B2%B4%EC%83%9D%EC%84%B1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wgy5446">
+      <meta itemprop="description" content="All story about js">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="John">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/%EC%83%9D%EC%84%B1%EC%9E%90%ED%95%A8%EC%88%98%EC%97%90%EC%9D%98%ED%95%9C%EA%B0%9D%EC%B2%B4%EC%83%9D%EC%84%B1/" class="post-title-link" itemprop="url">생성자 함수에 의한 객체 생성</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-03-04 22:30:20 / Modified: 23:02:33" itemprop="dateCreated datePublished" datetime="2020-03-04T22:30:20+09:00">2020-03-04</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-Object-생성자-함수"><a href="#1-Object-생성자-함수" class="headerlink" title="1. Object 생성자 함수"></a>1. Object 생성자 함수</h2><p>new 연산자와 함께 Object 생성자 함수를 호출하면 빈 객체를 생성하여 반환한다. 빈 객체를 생성한 이후 프로퍼티 또는 메소드를 추가하여 객체를 완성할 수 있다. 생성자 함수에 의해 생성된 객체를 인스턴스라 한다. 자바스크립트는 이외에도 String, Number, Boolean, Function, Array, Date, RegExp 등의 빌트인 생성자 함수를 제공한다.</p>
+<hr>
+<h2 id="2-생성자-함수"><a href="#2-생성자-함수" class="headerlink" title="2. 생성자 함수"></a>2. 생성자 함수</h2><h3 id="2-1-객체-리터럴에-의한-객체-생성-방식의-문제점"><a href="#2-1-객체-리터럴에-의한-객체-생성-방식의-문제점" class="headerlink" title="2-1. 객체 리터럴에 의한 객체 생성 방식의 문제점"></a>2-1. 객체 리터럴에 의한 객체 생성 방식의 문제점</h3><p>객체 리터럴에 의한 객체 생성 방식은 단 하나의 객체만을 생성한다. 따라서 동일한 프로퍼티를 갖는 객체를 여러 개 생성해야 하는 경우, 매번 같은 프로퍼티를 기술해야 하기 때문에 비효율적이다.</p>
+<hr>
+<h3 id="2-2-생성자-함수에-의한-객체-생성-방식의-장점"><a href="#2-2-생성자-함수에-의한-객체-생성-방식의-장점" class="headerlink" title="2-2. 생성자 함수에 의한 객체 생성 방식의 장점"></a>2-2. 생성자 함수에 의한 객체 생성 방식의 장점</h3><p>생성자 함수에 의한 객체 생성 방식은 마치 객체를 생성하기 위한 템플릿처럼 생성자 함수를 사용하여 프로퍼티 구조가 동일한 객체 여러 개를 간편하게 생성할 수 있다.</p>
+<hr>
+<h3 id="2-3-내부-메소드-Call-과-Construct"><a href="#2-3-내부-메소드-Call-과-Construct" class="headerlink" title="2-3. 내부 메소드 [[Call]]과 [[Construct]]"></a>2-3. 내부 메소드 [[Call]]과 [[Construct]]</h3><p>내부 메소드 [[Call]]을 갖는 함수 객체를 callable이라 하며, 내부 메소드인 [[Construct]]를 갖는 함수 객체를 constructor, [[Construct]]를 갖지 않는 함수 객체를 non-constructor라고 부른다. callable은 호출할 수 있는 객체, 즉 함수를 말하며, constructor는 생성자 함수로서 호출할 수 있는 객체를 의미한다. 생성자 함수로서 호출할 수 있다는 것은 new 연산자(또는 super 연산자)와 함께 호출하는 것을 의미한다.</p>
+<hr>
+<h3 id="2-4-constructor와-non-constructor의-구분"><a href="#2-4-constructor와-non-constructor의-구분" class="headerlink" title="2-4. constructor와 non-constructor의 구분"></a>2-4. constructor와 non-constructor의 구분</h3><p>일반 함수로 정의된 함수만이 constructor이다. 함수의 종류가 Arrow, Method인 함수는 non-constructor가 된다. 즉, 같이 일반 함수로 정의된 함수만이 생성자 함수로서 호출될 수 있다.</p>
+<hr>
+<h3 id="2-5-생성자-함수의-인스턴스-생성-과정"><a href="#2-5-생성자-함수의-인스턴스-생성-과정" class="headerlink" title="2-5. 생성자 함수의 인스턴스 생성 과정"></a>2-5. 생성자 함수의 인스턴스 생성 과정</h3><p>생성자 함수의 역할은 프로퍼티 구조가 동일한 인스턴스를 생성하기 위한 템플릿으로서 동작하여 인스턴스를 생성하는 것과 생성된 인스턴스를 초기화하는 것이다.</p>
+<ul>
+<li>인스턴스 생성과 this바인딩 : 암묵적으로 빈 객체가 생성된다.</li>
+<li>인스턴스 초기화 : 생성자 함수에 기술되어 있는 코드가 실행되어 this에 바인딩되어 있는 인스턴스를 초기화한다.</li>
+<li>인스턴스 반환 : 생성자 함수 내부의 모든 처리가 끝나면 완성된 인스턴스가 바인딩된 this가 암묵적으로 반환된다.</li>
+</ul>
+<hr>
+<h3 id="2-6-new-연산자"><a href="#2-6-new-연산자" class="headerlink" title="2-6. new 연산자"></a>2-6. new 연산자</h3><p>new 연사자와 함께 함수를 호출하면 해당 함수는 생성자 함수로 동작한다. 단, new 연산자와 함께 호출하는 함수는 non-constructor가 아닌 constructor이여야 한다. 반대로 new 연산자 없이 생성자 함수를 호출하면 일반 함수로 호출된다.</p>
+<hr>
+<h3 id="2-7-new-target"><a href="#2-7-new-target" class="headerlink" title="2-7. new.target"></a>2-7. new.target</h3><p>ES6에서는 new.target을 지원한다. this와 유사하게 모든 함수 내부에서 암묵적인 지역 변수와 같이 사용되며 메타 프로퍼티라고 부른다. IE는 new.target를 지원하지 않는다. 함수 내부에서 new.target를 사용하면 new 연산자와 함께 함수가 호출되었는지 확인할 수 있다. 함수가 new 연산자와 함께 호출되면 함수 내부의 new.target은 함수 자신을 가리킨다. new 연산자 없이 호출된 함수 내부의 new.target은 undefined이다. new 연산자와 함께 생성자 함수에 의해 생성된 객체(인스턴스)는 프로토타입에 의해 생성자 함수와 연결된다. 이를 이용해 new 연산자와 함께 호출되었는지를 확인할 수 있다.</p>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/03/%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1000,159 +1079,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/02/%EC%97%B0%EC%82%B0%EC%9E%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="wgy5446">
-      <meta itemprop="description" content="All story about js">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="John">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/%EC%97%B0%EC%82%B0%EC%9E%90/" class="post-title-link" itemprop="url">Operator</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-02-22 20:29:20" itemprop="dateCreated datePublished" datetime="2020-02-22T20:29:20+09:00">2020-02-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-23 17:40:26" itemprop="dateModified" datetime="2020-02-23T17:40:26+09:00">2020-02-23</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="연산자"><a href="#연산자" class="headerlink" title="연산자"></a>연산자</h2><hr>
-<p>연산자는 하나 이상의 표현식을 대상으로 산술, 할당, 비교, 논리, 타입, 지수 연산 등을 수행해 하나의 값을 만든다. 이때 연산의 대상을 피연산자라 한다.</p>
-<hr>
-<h3 id="1-산술-연산자"><a href="#1-산술-연산자" class="headerlink" title="1. 산술 연산자"></a>1. 산술 연산자</h3><p>산술 연산자는 피연산자를 대상으로 수학적 계산을 수행해 새로운 숫자 값을 만든다. 산술 연산자는 피연산자의 개수에 따라 이항 산술 연산자와 단항 산술 연산자로 구분할 수 있다.</p>
-<hr>
-<h3 id="1-1-이항-산술-연산자"><a href="#1-1-이항-산술-연산자" class="headerlink" title="1-1. 이항 산술 연산자"></a>1-1. 이항 산술 연산자</h3><p>이항 산술 연산자는 2개의 피연산자를 산술 연산하여 숫자 타입의 값을 만든다.</p>
-<ul>
-<li>이항 산술 연산자 종류의 의미와 부수 효과<ul>
-<li>덧셈(+) 부수효과가 없음.</li>
-<li>뺄셈(-) 부수효과가 없음.</li>
-<li>곱셈(*) 부수효과가 없음.</li>
-<li>나눗셈(/) 부수효과가 없음.</li>
-<li>나머지(%) 부수효과가 없음.</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="1-2-단항-산술-연산자"><a href="#1-2-단항-산술-연산자" class="headerlink" title="1-2. 단항 산술 연산자"></a>1-2. 단항 산술 연산자</h3><p>단항 산술 연산자는 1개의 피연산자를 산술 연산하여 숫자 타입의 값을 만든다.<br>증가/감소 연산자는 피연산자의 값을 변경하는 부수 효과가 있다.</p>
-<ul>
-<li>단항 산술 연산자 종류의 의미와 부수 효과<ul>
-<li>증가(++) 부수효과가 있음.</li>
-<li>감소(–) 부수효과가 있음.</li>
-<li>덧셈은 어떤한 효과도 없다.</li>
-<li>뺄셈은 양수를 음수로 음수를 양수로 반전한 값을 반환한다.</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="1-3-문자열-연결-연산자"><a href="#1-3-문자열-연결-연산자" class="headerlink" title="1-3. 문자열 연결 연산자"></a>1-3. 문자열 연결 연산자</h3><p>덧셈 연산자는 피연산자 중 하나 이상이 문자열인 경우 문자열 연결 연산자로 동작한다.</p>
-<hr>
-<h3 id="2-할당-연산자"><a href="#2-할당-연산자" class="headerlink" title="2. 할당 연산자"></a>2. 할당 연산자</h3><p>할당 연산자는 우항에 있는 피연자의 평가 결과를 좌항에 있는 변수에 할당한다.</p>
-<ul>
-<li>할당 연산자 종류의 사례와 동일 표현과 부수 효과<ul>
-<li>=는  x = 5 or x = 5,  부수 효과가 있음.</li>
-<li>+=는 x += 5 or x = x + 5, 부수 효과가 있음.</li>
-<li>-=는 x -= 5 or x = x - 5, 부수 효과가 있음.</li>
-<li>*=는 x *= 5 or x = x * 5, 부수 효과가 있음.</li>
-<li>/=는 x /= 5 or x = x / 5, 부수 효과가 있음.</li>
-<li>%=는 x %= 5 or x = x % 5, 부수 효과가 있음.</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="3-비교-연산자"><a href="#3-비교-연산자" class="headerlink" title="3. 비교 연산자"></a>3. 비교 연산자</h3><p>비교 연산자는 좌항과 우항의 피연산자를 비교한 다음 그 결과를 불리언 값을 반환한다. 비교 연산자는 if문이나 for문과 같은 제어문의 조건식에서 주로 사용한다. 비교 연산자는 동등/일치 비교 연산자와 대소 관계 비교 연산자로 나뉜다.</p>
-<hr>
-<h3 id="3-1-동등-일치-비교-연산자"><a href="#3-1-동등-일치-비교-연산자" class="headerlink" title="3-1. 동등/일치 비교 연산자"></a>3-1. 동등/일치 비교 연산자</h3><p>동등 비교 연산와 일치 비교 연산자는 좌항과 우항의 피연산자가 같은 값을 갖는지 비교하여 불리언 값을 반환한다. 하지만 동등 비교 연산자는 느슨한 비교를 하지만 일치 비교 연산자는 엄격한 비교를 한다.</p>
-<ul>
-<li>동등/일치 비교 연산자 종류의 의미, 사례, 설명, 부수효과<ul>
-<li>동등 비교(==)는 x == y 즉, x와 y의 값이 같음, 부수 효과 없음.</li>
-<li>일치 비교(===)는 x === y 즉, x와 y의 값과 타입이 같음, 부수 효과 없음.</li>
-<li>부동등 비교(!=)는 x != y 즉, x와 y의 값이 다름, 부수 효과 없음.</li>
-<li>불일치 비교(!==)는 x !== y 즉, x와 y의 값과 타입이 다름, 부수 효과 없음.</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="3-2-대소-관계-비교-연산자"><a href="#3-2-대소-관계-비교-연산자" class="headerlink" title="3-2. 대소 관계 비교 연산자"></a>3-2. 대소 관계 비교 연산자</h3><p>대소 관계 비교 연산자는 피연산자의 크기를 비교하여 불리언 값을 반환한다.</p>
-<ul>
-<li>대소 관계 비교 연산자 종류의 예제, 설명, 부수효과<ul>
-<li>(&gt;)는 x &gt; y 즉, x가 y보다 크다, 부수 효과 없음.</li>
-<li>(&lt;)는 x &lt; y 즉, x가 y보다 작다, 부수 효과 없음.</li>
-<li>(&gt;=)는 x &gt;= y 즉, x가 y보다 같거나 크다, 부수 효과 없음.</li>
-<li>(&lt;=)는 x &lt;= y 즉, x가 y보다 같거나 크다, 부수 효과 없음.</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="4-삼항-조건-연산자"><a href="#4-삼항-조건-연산자" class="headerlink" title="4. 삼항 조건 연산자"></a>4. 삼항 조건 연산자</h3><p>삼항 조건 연산자는 조건식의 평가 결과에 따라 반환할 값을 결정한다. 자바스크립트의 유일한 삼항 연산자는 부수 효과는 없다. 삼항 조건 연산자 표현식은 값으로 평가할 수 있는 표현식인 문이다.</p>
-<hr>
-<h3 id="5-논리-연산자"><a href="#5-논리-연산자" class="headerlink" title="5. 논리 연산자"></a>5. 논리 연산자</h3><p>논리 연산자는 우항과 좌항의 피연산자를 논리 연산한다.</p>
-<ul>
-<li>논리 연산자 종류의 의미와 부수 효과<ul>
-<li>||는 논리합(OR)이고, 부수 효과 없음.</li>
-<li>&amp;&amp;는 논리곱(AND)이고, 부수 효과 없음.</li>
-<li>!는 부정(NOT)이고, 부수 효과 없음.</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="6-쉼표-연산자"><a href="#6-쉼표-연산자" class="headerlink" title="6. 쉼표 연산자"></a>6. 쉼표 연산자</h3><p>쉼표(,) 연산자는 왼쪽 피연산자부터 차례대로 피연산자를 평가하고 마지막 피연산자의 평가가 끝나면 마지막 피연산자의 평가 결과를 반환한다.</p>
-<hr>
-<h3 id="7-그룹-연산자"><a href="#7-그룹-연산자" class="headerlink" title="7. 그룹 연산자"></a>7. 그룹 연산자</h3><p>그룹 연산자(…)는 피연산자인 표현식을 가장 먼저 평가한다. 따라서 그룹 연산자를 사용하면 연산자의 우선 순위를 조절할 수 있다.</p>
-<hr>
-<h3 id="8-typeof-연산자"><a href="#8-typeof-연산자" class="headerlink" title="8. typeof 연산자"></a>8. typeof 연산자</h3><p>typeof 연산자는 피연산자의 데이터 타입을 문자열로 반환한다. typeof 연산자는 7가지 문자열 “string”, “number”, “boolean”, “undefined”, “symbol”, “object”, “function” 중 하나를 반환한다. “null”을 반환하는 경우는 없으며 함수의 경우 “function”을 반환한다. </p>
-<hr>
-<h3 id="9-지수-연산자"><a href="#9-지수-연산자" class="headerlink" title="9. 지수 연산자"></a>9. 지수 연산자</h3><p>ES7에서 새롭게 도입된 지수 연산자는 좌항의 피연산자를 밑으로, 우항의 피연산자를 지수로 거듭 제곱하여 숫자 타입의 값을 반환한다.</p>
-<hr>
-<h3 id="10-연산자의-부수-효과"><a href="#10-연산자의-부수-효과" class="headerlink" title="10. 연산자의 부수 효과"></a>10. 연산자의 부수 효과</h3><p>대부분의 연산자는 다른 코드에 영향을 주지 않는다. 예를 들어, 1 * 2는 다른 코드에 어떤한 영향도 주지 않는다.하지만 일부 연산자는 다른 코드에 영향을 주는 부수 효과가 있다.</p>
-<hr>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1223,7 +1149,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
