@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"wgy5446.github.io","root":"/","scheme":"Muse","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="3. 노드 탐색요소 노드 객체를 취득한 다음, 취득한 요소 노드를 기점으로 DOM 트리의 노드를 옮겨 다니며 취득한 요소 노드의 부모, 형제, 자식 등을 탐색 할 때가 있다. DOM 트리 상의 노드를 탐색할 수 있도록 node,Element 인터페이스는 트리 탐색 프로퍼티를 제공한다. DOM 트리를 구성하는 노드로서 갖추어야 할 트리 노드 탐색을 위한 프로">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DOM">
+<meta property="og:url" content="https://wgy5446.github.io/2020/03/Dom/index.html">
+<meta property="og:site_name" content="John">
+<meta property="og:description" content="3. 노드 탐색요소 노드 객체를 취득한 다음, 취득한 요소 노드를 기점으로 DOM 트리의 노드를 옮겨 다니며 취득한 요소 노드의 부모, 형제, 자식 등을 탐색 할 때가 있다. DOM 트리 상의 노드를 탐색할 수 있도록 node,Element 인터페이스는 트리 탐색 프로퍼티를 제공한다. DOM 트리를 구성하는 노드로서 갖추어야 할 트리 노드 탐색을 위한 프로">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-30T10:56:41.000Z">
+<meta property="article:modified_time" content="2020-03-30T12:08:35.555Z">
+<meta property="article:author" content="wgy5446">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content=" js">
+<meta property="article:tag" content=" react">
+<meta property="article:tag" content=" anqular">
+<meta property="article:tag" content=" hhkb">
+<meta property="article:tag" content=" realforce">
+<meta property="article:tag" content=" leopold">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://wgy5446.github.io/2020/03/Dom/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>DOM | John</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">John</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">John</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/03/Dom/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wgy5446">
+      <meta itemprop="description" content="All story about js">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="John">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DOM
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-03-30 19:56:41 / Modified: 21:08:35" itemprop="dateCreated datePublished" datetime="2020-03-30T19:56:41+09:00">2020-03-30</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="3-노드-탐색"><a href="#3-노드-탐색" class="headerlink" title="3. 노드 탐색"></a>3. 노드 탐색</h2><p>요소 노드 객체를 취득한 다음, 취득한 요소 노드를 기점으로 DOM 트리의 노드를 옮겨 다니며 취득한 요소 노드의 부모, 형제, 자식 등을 탐색 할 때가 있다. DOM 트리 상의 노드를 탐색할 수 있도록 node,Element 인터페이스는 트리 탐색 프로퍼티를 제공한다.</p>
+<p>DOM 트리를 구성하는 노드로서 갖추어야 할 트리 노드 탐색을 위한 프로퍼티인 parentNode, previousSlibling, firstChild, childNodes 등은 Node.prototype이 제공하고 프로퍼티 키에 Element가 포함된 previousElementSlibling, nextElementSlibling과 children은 Element.prototype이 제공하는 프로퍼티이다.</p>
+<p>노드 탐색 프로퍼티는 모두 접근자 프로퍼티이다. 단, setter없이 getter만 존재하여 참조만 가능한 읽기 전용 프로퍼티이다. 읽기 전용 접근자 프로퍼티에 값을 할당하면 아무런 에러없이 무시된다.</p>
+<hr>
+<h3 id="3-1-공백-텍스트-노드"><a href="#3-1-공백-텍스트-노드" class="headerlink" title="3-1. 공백 텍스트 노드"></a>3-1. 공백 텍스트 노드</h3><p>HTML요소 사이의 개행이나 공백은 텍스트 노드를 생성한다.</p>
+<hr>
+<h3 id="3-2-자식-노드-탐색"><a href="#3-2-자식-노드-탐색" class="headerlink" title="3-2. 자식 노드 탐색"></a>3-2. 자식 노드 탐색</h3><ul>
+<li>자식노드를 탐색하기 위해서 노드 탐색 프로퍼티를 사용한다.<ul>
+<li>Node.prototype.childNodes : 자식 노드를 모두 탐색하여 DOM 컬렉션 객체인 NodeList에 담아 반환한다.</li>
+<li>childNodes : 프로퍼티가 반환한 NOdeList에는 텍스트 노드 또는 요소 노드가 포함되어 있다.</li>
+<li>Element.prototype.children : 자식 요소 노드 만을 모두 탐색하여 DOM 컬렉션 객체인 HTMLCollection에 담아 반환한다. children 프로퍼티가 반환한 HTMLCollection에는 텍스트 노드는 포함되지 않고 요소 노드만이 포함되어 있다.</li>
+<li>Node.prototype.firstchild : 첫번째 자식 노드를 반환한다. firstChild 프로퍼티가 반환한 노드는 텍스트 노드 또는 요소 노드이다.</li>
+<li>Node.prototype.lastChild : 마지막 자식 노드를 반환한다. </li>
+<li>lastChild 프로퍼티가 반환한 노드는 텍스트 노드 또는 요소 노드이다.</li>
+<li>Element.prototype.firstElementChild : 첫번째 자식 노드를 반환한다. firstElementChild 프로퍼티는 요소 노드 만을 반환한다.</li>
+<li>Element.prototype.lastElementChild    : 마지막 자식 노드를 반환한다. lastElementChild 프로퍼티는 요소 노드 만을 반환한다.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="3-3-자식-노드-존재-확인"><a href="#3-3-자식-노드-존재-확인" class="headerlink" title="3-3. 자식 노드 존재 확인"></a>3-3. 자식 노드 존재 확인</h3><p>자식 노드의 존재 여부는 불리언 값을 반환하는 Node.prototype.hasChildNodes메소드로 확인할 수 있다. 텍스트 노드를 포함하여 자식 노드의 존재를 확인한다.</p>
+<hr>
+<h3 id="3-4-텍스트-노드-탐색"><a href="#3-4-텍스트-노드-탐색" class="headerlink" title="3-4. 텍스트 노드 탐색"></a>3-4. 텍스트 노드 탐색</h3><p>요소 노드의 텍스트 노드는 요소 노드의 자식 노드이다. 따라서 요소 노드의 텍스트 노드는 firstChild 프로퍼티로 접근할 수 있다.</p>
+<hr>
+<h3 id="3-5-부모-노드-탐색"><a href="#3-5-부모-노드-탐색" class="headerlink" title="3-5. 부모 노드 탐색"></a>3-5. 부모 노드 탐색</h3><p>부모 노드를 탐색하기 위해서는 Node.prototype.ParentNode 프로퍼티를 사용한다.</p>
+<hr>
+<h3 id="3-6-형제-노드-탐색"><a href="#3-6-형제-노드-탐색" class="headerlink" title="3-6. 형제 노드 탐색"></a>3-6. 형제 노드 탐색</h3><p>같은 부모 노드를 갖는 형제 노드를 탐색하기 위해서는 아래와 같은 노드탐색 프로퍼티를 사용한다.</p>
+<ul>
+<li>Node.prototype.previousSibling : 같은 부모 노드를 갖는 형제 노드에서 이전 형제 노드를 탐색하여 반환한다. 텍스트 노드 또는 요소 노드가 반환된다.</li>
+<li>Node.prototype.nextSibling : 같은 부모 노드를 갖는 형제 노드에서 다음 형제 노드를 탐색하여 반환한다. 텍스트 노드 또는 요소 노드가 반환된다.</li>
+<li>Element.prototype.previousElementSibling : 같은 부모 노드를 갖는 형제 요소 노드에서 이전 형제 요소 노드를 탐색하여 반환한다. 요소 노드만 반환된다.</li>
+<li>Element.prototype.nextElementSibling : 같은 부모 노드를 갖는 형제 요소 노드에서 다음 형제 요소 노드를 탐색하여 반환한다. 요소 노드만 반환된다.</li>
+</ul>
+<hr>
+<h2 id="4-노드-정보-취득"><a href="#4-노드-정보-취득" class="headerlink" title="4. 노드 정보 취득"></a>4. 노드 정보 취득</h2><p>노드 객체에 대한 정보를 확인하려면 노드 정보 프로퍼티를 사용한다.</p>
+<ul>
+<li><p>Node.prototype.nodeType : 노드 객체의 종류를 나타내는 상수를 반환한다. 노드 객체의 종류를 나타내는 노드 타입 상수는 Node에 정의되어 있다.</p>
+<ul>
+<li>요소 노드: 숫자 1을 반환</li>
+<li>텍스트 노드: 숫자 3을 반환</li>
+<li>문서 노드: 숫자 9를 반환</li>
+</ul>
+</li>
+<li><p>Node.prototype.nodeName : 노드의 이름을 문자열로 반환한다.</p>
+<ul>
+<li>요소노드: 대문자 문자열로 태그 이름을 반환</li>
+<li>텍스트 노드: 문자열”#text”를 반환</li>
+<li>문서 노드: 문자열”#document”를 반환</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="5-요소-노드의-텍스트-조작"><a href="#5-요소-노드의-텍스트-조작" class="headerlink" title="5. 요소 노드의 텍스트 조작"></a>5. 요소 노드의 텍스트 조작</h2><h3 id="5-1-nodeValue"><a href="#5-1-nodeValue" class="headerlink" title="5-1. nodeValue"></a>5-1. nodeValue</h3><p>nodeValue 프로퍼티는 참조와 할당 모두 가능하다.노드의 nodeValue 프로퍼티를 참조하면 노드의 값을 반환한다. 이때 텍스트 노드가 아닌 노드, 즉 문서 노드나 요소 노드의 nodeValue 프로퍼티를 참조하면 null을 반환한다.</p>
+<h3 id="5-2-textContent"><a href="#5-2-textContent" class="headerlink" title="5-2. textContent"></a>5-2. textContent</h3><p>Node.prototype.textContent는 setter와 getter 모두 존재하는 접근자 프로퍼티로서 요소 노드의 텍스트와 모든 자손 노드의 텍스트를 모두 취득하거나 변경한다.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EC%9D%98%EB%A0%8C%EB%8D%94%EB%A7%81%EA%B3%BC%EC%A0%95/" rel="prev" title="브라우저의렌더링과정">
+      <i class="fa fa-chevron-left"></i> 브라우저의렌더링과정
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-노드-탐색"><span class="nav-number">1.</span> <span class="nav-text">3. 노드 탐색</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-공백-텍스트-노드"><span class="nav-number">1.1.</span> <span class="nav-text">3-1. 공백 텍스트 노드</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-자식-노드-탐색"><span class="nav-number">1.2.</span> <span class="nav-text">3-2. 자식 노드 탐색</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-자식-노드-존재-확인"><span class="nav-number">1.3.</span> <span class="nav-text">3-3. 자식 노드 존재 확인</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-텍스트-노드-탐색"><span class="nav-number">1.4.</span> <span class="nav-text">3-4. 텍스트 노드 탐색</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-부모-노드-탐색"><span class="nav-number">1.5.</span> <span class="nav-text">3-5. 부모 노드 탐색</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-형제-노드-탐색"><span class="nav-number">1.6.</span> <span class="nav-text">3-6. 형제 노드 탐색</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-노드-정보-취득"><span class="nav-number">2.</span> <span class="nav-text">4. 노드 정보 취득</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-요소-노드의-텍스트-조작"><span class="nav-number">3.</span> <span class="nav-text">5. 요소 노드의 텍스트 조작</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-nodeValue"><span class="nav-number">3.1.</span> <span class="nav-text">5-1. nodeValue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-textContent"><span class="nav-number">3.2.</span> <span class="nav-text">5-2. textContent</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">wgy5446</p>
+  <div class="site-description" itemprop="description">All story about js</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wgy5446</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.1
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

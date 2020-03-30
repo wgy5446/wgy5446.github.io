@@ -149,6 +149,232 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/03/Dom/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wgy5446">
+      <meta itemprop="description" content="All story about js">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="John">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/Dom/" class="post-title-link" itemprop="url">DOM</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-03-30 19:56:41 / Modified: 21:08:35" itemprop="dateCreated datePublished" datetime="2020-03-30T19:56:41+09:00">2020-03-30</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="3-노드-탐색"><a href="#3-노드-탐색" class="headerlink" title="3. 노드 탐색"></a>3. 노드 탐색</h2><p>요소 노드 객체를 취득한 다음, 취득한 요소 노드를 기점으로 DOM 트리의 노드를 옮겨 다니며 취득한 요소 노드의 부모, 형제, 자식 등을 탐색 할 때가 있다. DOM 트리 상의 노드를 탐색할 수 있도록 node,Element 인터페이스는 트리 탐색 프로퍼티를 제공한다.</p>
+<p>DOM 트리를 구성하는 노드로서 갖추어야 할 트리 노드 탐색을 위한 프로퍼티인 parentNode, previousSlibling, firstChild, childNodes 등은 Node.prototype이 제공하고 프로퍼티 키에 Element가 포함된 previousElementSlibling, nextElementSlibling과 children은 Element.prototype이 제공하는 프로퍼티이다.</p>
+<p>노드 탐색 프로퍼티는 모두 접근자 프로퍼티이다. 단, setter없이 getter만 존재하여 참조만 가능한 읽기 전용 프로퍼티이다. 읽기 전용 접근자 프로퍼티에 값을 할당하면 아무런 에러없이 무시된다.</p>
+<hr>
+<h3 id="3-1-공백-텍스트-노드"><a href="#3-1-공백-텍스트-노드" class="headerlink" title="3-1. 공백 텍스트 노드"></a>3-1. 공백 텍스트 노드</h3><p>HTML요소 사이의 개행이나 공백은 텍스트 노드를 생성한다.</p>
+<hr>
+<h3 id="3-2-자식-노드-탐색"><a href="#3-2-자식-노드-탐색" class="headerlink" title="3-2. 자식 노드 탐색"></a>3-2. 자식 노드 탐색</h3><ul>
+<li>자식노드를 탐색하기 위해서 노드 탐색 프로퍼티를 사용한다.<ul>
+<li>Node.prototype.childNodes : 자식 노드를 모두 탐색하여 DOM 컬렉션 객체인 NodeList에 담아 반환한다.</li>
+<li>childNodes : 프로퍼티가 반환한 NOdeList에는 텍스트 노드 또는 요소 노드가 포함되어 있다.</li>
+<li>Element.prototype.children : 자식 요소 노드 만을 모두 탐색하여 DOM 컬렉션 객체인 HTMLCollection에 담아 반환한다. children 프로퍼티가 반환한 HTMLCollection에는 텍스트 노드는 포함되지 않고 요소 노드만이 포함되어 있다.</li>
+<li>Node.prototype.firstchild : 첫번째 자식 노드를 반환한다. firstChild 프로퍼티가 반환한 노드는 텍스트 노드 또는 요소 노드이다.</li>
+<li>Node.prototype.lastChild : 마지막 자식 노드를 반환한다. </li>
+<li>lastChild 프로퍼티가 반환한 노드는 텍스트 노드 또는 요소 노드이다.</li>
+<li>Element.prototype.firstElementChild : 첫번째 자식 노드를 반환한다. firstElementChild 프로퍼티는 요소 노드 만을 반환한다.</li>
+<li>Element.prototype.lastElementChild    : 마지막 자식 노드를 반환한다. lastElementChild 프로퍼티는 요소 노드 만을 반환한다.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="3-3-자식-노드-존재-확인"><a href="#3-3-자식-노드-존재-확인" class="headerlink" title="3-3. 자식 노드 존재 확인"></a>3-3. 자식 노드 존재 확인</h3><p>자식 노드의 존재 여부는 불리언 값을 반환하는 Node.prototype.hasChildNodes메소드로 확인할 수 있다. 텍스트 노드를 포함하여 자식 노드의 존재를 확인한다.</p>
+<hr>
+<h3 id="3-4-텍스트-노드-탐색"><a href="#3-4-텍스트-노드-탐색" class="headerlink" title="3-4. 텍스트 노드 탐색"></a>3-4. 텍스트 노드 탐색</h3><p>요소 노드의 텍스트 노드는 요소 노드의 자식 노드이다. 따라서 요소 노드의 텍스트 노드는 firstChild 프로퍼티로 접근할 수 있다.</p>
+<hr>
+<h3 id="3-5-부모-노드-탐색"><a href="#3-5-부모-노드-탐색" class="headerlink" title="3-5. 부모 노드 탐색"></a>3-5. 부모 노드 탐색</h3><p>부모 노드를 탐색하기 위해서는 Node.prototype.ParentNode 프로퍼티를 사용한다.</p>
+<hr>
+<h3 id="3-6-형제-노드-탐색"><a href="#3-6-형제-노드-탐색" class="headerlink" title="3-6. 형제 노드 탐색"></a>3-6. 형제 노드 탐색</h3><p>같은 부모 노드를 갖는 형제 노드를 탐색하기 위해서는 아래와 같은 노드탐색 프로퍼티를 사용한다.</p>
+<ul>
+<li>Node.prototype.previousSibling : 같은 부모 노드를 갖는 형제 노드에서 이전 형제 노드를 탐색하여 반환한다. 텍스트 노드 또는 요소 노드가 반환된다.</li>
+<li>Node.prototype.nextSibling : 같은 부모 노드를 갖는 형제 노드에서 다음 형제 노드를 탐색하여 반환한다. 텍스트 노드 또는 요소 노드가 반환된다.</li>
+<li>Element.prototype.previousElementSibling : 같은 부모 노드를 갖는 형제 요소 노드에서 이전 형제 요소 노드를 탐색하여 반환한다. 요소 노드만 반환된다.</li>
+<li>Element.prototype.nextElementSibling : 같은 부모 노드를 갖는 형제 요소 노드에서 다음 형제 요소 노드를 탐색하여 반환한다. 요소 노드만 반환된다.</li>
+</ul>
+<hr>
+<h2 id="4-노드-정보-취득"><a href="#4-노드-정보-취득" class="headerlink" title="4. 노드 정보 취득"></a>4. 노드 정보 취득</h2><p>노드 객체에 대한 정보를 확인하려면 노드 정보 프로퍼티를 사용한다.</p>
+<ul>
+<li><p>Node.prototype.nodeType : 노드 객체의 종류를 나타내는 상수를 반환한다. 노드 객체의 종류를 나타내는 노드 타입 상수는 Node에 정의되어 있다.</p>
+<ul>
+<li>요소 노드: 숫자 1을 반환</li>
+<li>텍스트 노드: 숫자 3을 반환</li>
+<li>문서 노드: 숫자 9를 반환</li>
+</ul>
+</li>
+<li><p>Node.prototype.nodeName : 노드의 이름을 문자열로 반환한다.</p>
+<ul>
+<li>요소노드: 대문자 문자열로 태그 이름을 반환</li>
+<li>텍스트 노드: 문자열”#text”를 반환</li>
+<li>문서 노드: 문자열”#document”를 반환</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="5-요소-노드의-텍스트-조작"><a href="#5-요소-노드의-텍스트-조작" class="headerlink" title="5. 요소 노드의 텍스트 조작"></a>5. 요소 노드의 텍스트 조작</h2><h3 id="5-1-nodeValue"><a href="#5-1-nodeValue" class="headerlink" title="5-1. nodeValue"></a>5-1. nodeValue</h3><p>nodeValue 프로퍼티는 참조와 할당 모두 가능하다.노드의 nodeValue 프로퍼티를 참조하면 노드의 값을 반환한다. 이때 텍스트 노드가 아닌 노드, 즉 문서 노드나 요소 노드의 nodeValue 프로퍼티를 참조하면 null을 반환한다.</p>
+<h3 id="5-2-textContent"><a href="#5-2-textContent" class="headerlink" title="5-2. textContent"></a>5-2. textContent</h3><p>Node.prototype.textContent는 setter와 getter 모두 존재하는 접근자 프로퍼티로서 요소 노드의 텍스트와 모든 자손 노드의 텍스트를 모두 취득하거나 변경한다.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/03/%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EC%9D%98%EB%A0%8C%EB%8D%94%EB%A7%81%EA%B3%BC%EC%A0%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wgy5446">
+      <meta itemprop="description" content="All story about js">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="John">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EC%9D%98%EB%A0%8C%EB%8D%94%EB%A7%81%EA%B3%BC%EC%A0%95/" class="post-title-link" itemprop="url">브라우저의렌더링과정</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-30 19:30:00" itemprop="dateCreated datePublished" datetime="2020-03-30T19:30:00+09:00">2020-03-30</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/03/number/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wgy5446">
+      <meta itemprop="description" content="All story about js">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="John">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/number/" class="post-title-link" itemprop="url">number</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-27 10:17:03" itemprop="dateCreated datePublished" datetime="2020-03-27T10:17:03+09:00">2020-03-27</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/03/%EB%94%94%EC%8A%A4%ED%8A%B8%EB%9F%AD%EC%B2%98%EB%A7%81%ED%95%A0%EB%8B%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -808,339 +1034,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/03/%EC%8B%A4%ED%96%89%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="wgy5446">
-      <meta itemprop="description" content="All story about js">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="John">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/%EC%8B%A4%ED%96%89%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/" class="post-title-link" itemprop="url">실행 컨텍스트</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-16 21:20:41" itemprop="dateCreated datePublished" datetime="2020-03-16T21:20:41+09:00">2020-03-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-17 00:50:59" itemprop="dateModified" datetime="2020-03-17T00:50:59+09:00">2020-03-17</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-소스-코트의-타입"><a href="#1-소스-코트의-타입" class="headerlink" title="1.  소스 코트의 타입"></a>1.  소스 코트의 타입</h2><p>ECMAScript 사양은 소스 코드(ECMAScript code)를 4가지 타입으로 구분한다.</p>
-<ul>
-<li>전역 코드 : 전역에 존재하는 소스 코드를 말한다. 전역에 정의된 함수, 클래스 등의 내부 코드는 포함되지 않는다. 소스 코드를 평가하여 전역 실행 컨텍스트를 만든다.</li>
-<li>함수 코드 : 함수 내부에 존재하는 소스 코드를 말한다. 함수 내부에 중첩된 함수, 클래스 등의 내부 코드는 포함되지 않는다. 소스 코드를 평가하여 함수 실행 컨텍스트를 만든다.</li>
-<li>eval 코드 : 빌트인 전역 함수인 eval 함수에 인수로 전달되어 실행되는 소스 코드를 말한다. 소스 코드를 평가하여 eval 실행 컨텍스트를 만든다.</li>
-<li>모듈 코드 : 모듈 내부에 존재하는 소스 코드를 말한다. 모듈 내부의 함수, 클래스 등의 내부 코드는 포함되지 않는다. 소스 코드를 평가하여 모듈 실행 컨텍스트를 만든다.</li>
-</ul>
-<hr>
-<h2 id="2-소스-코드의-평가와-실행"><a href="#2-소스-코드의-평가와-실행" class="headerlink" title="2. 소스 코드의 평가와 실행"></a>2. 소스 코드의 평가와 실행</h2><p>소스 코드의 평가와 소스 코드의 실행으로 나누어 처리한다. 소스 코드 평가 과정에서는 실행 컨텍스트를 생성하고 변수, 함수 등의 선언문 만을 먼저 실행하여 생성된 변수나 함수를 식별자를 키로 실행 컨텍스트가 관리하는 스코프에 등록한다. 소스 코드의 평가 과정이 끝나면 비로소 선언문을 제외한 소스 코드가 순차적으로 실행되기 시작한다. 이때 소스 코드 실행에 필요한 정보, 즉 변수나 함수의 참조를 실행 컨텍스트가 관리하는 스코프에서 취득한다. 그리고 변수 값의 변경과 같은 소스 코드의 실행 결과는 다시 실행 컨텍스트가 관리하는 스코프에 등록된다.</p>
-<hr>
-<h2 id="3-실행-컨텍스트의-역할"><a href="#3-실행-컨텍스트의-역할" class="headerlink" title="3. 실행 컨텍스트의 역할"></a>3. 실행 컨텍스트의 역할</h2><h3 id="1-전역-코드-평가"><a href="#1-전역-코드-평가" class="headerlink" title="1. 전역 코드 평가"></a>1. 전역 코드 평가</h3><p>먼저 전역 코드를 실행하기에 앞서 전역 코드 평가 과정을 거치며 전역 코드 실행을 위한 준비를 한다. 소스 코드 평가 과정에서는 선언문 만을 먼저 실행한다. 따라서 전역 코드의 변수 선언문과 함수 선언문이 먼저 실행되고 그 결과 생성된 전역 변수와 전역 함수가 실행 컨텍스트가 관리하는 전역 스코프에 등록된다. 또한 var 키워드로 선언된 전역 변수와 함수 선언문으로 정의된 전역 함수는 전역 객체의 전역 객체의 프로퍼티와 메소드가 된다.</p>
-<h3 id="2-전역-코드-실행"><a href="#2-전역-코드-실행" class="headerlink" title="2. 전역 코드 실행"></a>2. 전역 코드 실행</h3><p>전역 코드의 평가가 끝나면 전역 코드가 순차적으로 실행되기 시작한다. 이때 전역 변수에 값이 할당되고 함수가 호출된다. 함수가 호출되면 순차적으로 실행되던 전역 코드의 실행을 일시 중단하고 코드 실행 순서를 변경하여 함수 내부로 진입한다.</p>
-<h3 id="3-함수-코드-평가"><a href="#3-함수-코드-평가" class="headerlink" title="3. 함수 코드 평가"></a>3. 함수 코드 평가</h3><p>코드 실행 순서가 변경되어 함수 내부로 진입하면 함수 내부의 문들을 실행하기에 앞서 함수 코드 평가 과정을 거치며 함수 코드 실행을 위한 준비를 한다. 이때 매개 변수와 지역 변수 선언문이 먼저 실행되고 그 결과 생성된 매개 변수와 지역 변수가 실행 컨텍스트가 관리하는 지역 스코프에 등록된다. 또한 함수 내부에서 지역 변수처럼 사용할 수 있는 arguments 객체도 생성되어 지역 스코프에 등록된다.</p>
-<h3 id="4-함수-코드-실행"><a href="#4-함수-코드-실행" class="headerlink" title="4. 함수 코드 실행"></a>4. 함수 코드 실행</h3><p>함수 코드의 평가가 끝나면 함수 코드가 순차적으로 실행되기 시작한다. 이때 매개 변수와 지역 변수에 값이 할당되고 console.log 메소드가 호출된다.</p>
-<p>코드가 실행되려면 아래와 같이 스코프, 식별자, 코드 실행 순서 등의 관리가 필요하다.</p>
-<ul>
-<li>선언에 의해 생성된 모든 식별자를 스코프를 구분하여 등록하고 상태 변화를 지속적으로 관리 한다.</li>
-<li>스코프는 중첩 관계에 의해 스코프 체인을 형성해야 한다. 즉, 스코프 체인을 통해 상위 스코프로 이동하며 식별자를 검색할 수 있어야 한다.</li>
-<li>현재 실행 중인 코드의 실행 순서를 변경할 수 있어야 하며 다시 되돌아갈 수도 있어야 한다.</li>
-</ul>
-<p>실행 컨텍스트는 소스 코드를 실행하기 위해 필요한 환경을 제공하고 코드의 실행 결과를 실제로 관리하는 영역이다.<br>즉, 식별자를 등록하고 관리하는 스코프와 코드 실행 순서 관리를 구현한 내부 매커니즘으로 모든 코드는 실행 컨텍스트를 통해 실행되고 관리된다.</p>
-<p>식별자와 스코프는 실행 컨텍스트의 렉시컬 환경으로 관리하고 코드 실행 순서는 실행 컨텍스트 스택으로 관리한다.</p>
-<hr>
-<h2 id="4-실행-컨텍스트-스택"><a href="#4-실행-컨텍스트-스택" class="headerlink" title="4. 실행 컨텍스트 스택"></a>4. 실행 컨텍스트 스택</h2><p> 자바스크립트 엔진은 먼저 전역 코드를 평가하여 전역 실행 컨텍스트를 생성한다. 그리고 함수가 호출되면 함수 코드를 평가하여 함수 실행 컨텍스트를 생성한다.<br>이때 생성된 실행 컨텍스트는 스택 자료 구조로 관리된다. 이를 실행 컨텍스트 스택(Execution context stack)이라고 부른다.</p>
-<p>실행 컨텍스트 스택의 최상위에 존재하는 실행 컨텍스트는 언제나 현재 실행 중인 코드의 실행 컨텍스트이다. 따라서 실행 컨텍스트 스택의 최상위에 존재하는 실행 컨텍스트를 실행 중인 실행 컨텍스트(running execution context)라 부른다.</p>
-<hr>
-<h2 id="5-동기식-처리-모델과-비동기식-처리-모델"><a href="#5-동기식-처리-모델과-비동기식-처리-모델" class="headerlink" title="5. 동기식 처리 모델과 비동기식 처리 모델"></a>5. 동기식 처리 모델과 비동기식 처리 모델</h2><p>하나의 처리가 종료되어야 다음 처리를 실행할 수 있는 것을 동기식 처리 모델(Synchronous processing model)이라고 한다.</p>
-<p>자바스크립트는 비동기식 처리 모델을 지원한다. 비동기식 처리 모델(Asynchronous processing model 또는 Non-Blocking processing model)은 병렬적으로 태스크를 수행한다. 즉, 태스크가 종료되지 않은 상태라 하더라도 대기하지 않고 다음 태스크를 실행한다.</p>
-<hr>
-<h2 id="6-렉시컬-환경"><a href="#6-렉시컬-환경" class="headerlink" title="6. 렉시컬 환경"></a>6. 렉시컬 환경</h2><p>렉시컬 환경(Lexical Environment)은 식별자와 식별자에 바인딩된 값 그리고 상위 스코프에 대한 참조를 기록하는 환경으로 실행 컨텍스트를 구성하는 컴포넌트이다. 실행 컨텍스트 스택이 코드의 실행 순서를 관리한다면 렉시컬 환경은 스코프와 식별자를 관리한다.</p>
-<hr>
-<h2 id="7-실행-컨텍스트의-생성과-식별자-검색-과정"><a href="#7-실행-컨텍스트의-생성과-식별자-검색-과정" class="headerlink" title="7. 실행 컨텍스트의 생성과 식별자 검색 과정"></a>7. 실행 컨텍스트의 생성과 식별자 검색 과정</h2><h3 id="7-1-전역-객체-생성"><a href="#7-1-전역-객체-생성" class="headerlink" title="7-1. 전역 객체 생성"></a>7-1. 전역 객체 생성</h3><p>전역 객체는 전역 코드가 평가되기 이전에 생성된다. 이때 전역 객체에는 전역 프로퍼티와 전역 함수, 표준 빌트인 객체가 추가되며 동작 환경(클라이언트 사이드 또는 서버 사이드)에 따라 클라이언트 사이드 Web API 또는 특정 환경을 위한 호스트 객체를 포함한다.<br>전역 객체도 Object.prototype을 상속받는다. 즉, 전역 객체도 프로토타입 체인의 일원이다.</p>
-<hr>
-<h3 id="7-2-전역-코드-평가"><a href="#7-2-전역-코드-평가" class="headerlink" title="7-2. 전역 코드 평가"></a>7-2. 전역 코드 평가</h3><ol>
-<li>전역 실행 컨텍스트 생성</li>
-</ol>
-<p>먼저 전역 실행 컨텍스트를 생성하여 실행 컨텍스트 스택에 푸시한다. 이때 전역 실행 컨텍스트는 실행 컨텍스트 스택의 최상위, 즉 실행 중인 실행 컨텍스트(running execution context)가 된다.</p>
-<ol start="2">
-<li>전역 레시컬 환경 생성</li>
-</ol>
-<p>전역 렉시컬 환경(Global Lexical Environment)을 생성하고 전역 실행 컨텍스트의 LexicalEnvironment 컴포넌트와 VariableEnvironment 컴포넌트에 바인딩한다.</p>
-<hr>
-<h3 id="7-3-전역-코드-실행"><a href="#7-3-전역-코드-실행" class="headerlink" title="7-3. 전역 코드 실행"></a>7-3. 전역 코드 실행</h3><p>식별자가 선언된 식별자인지, 선언된 식별자라면 어느 스코프의 식별자를 참조하면 되는지 결정할 필요가 있다. 이를 식별자 결정(identifier resolution)이라 한다.<br>식별자 결정을 위해 식별자를 검색할 때는 실행 중인 실행 컨텍스트에서 식별자를 검색하기 시작한다. 선언된 식별자는 실행 컨텍스트의 렉시컬 환경의 환경 레코드에 등록되어 있다.</p>
-<hr>
-<h3 id="7-4-foo-함수-코드-평가"><a href="#7-4-foo-함수-코드-평가" class="headerlink" title="7-4. foo 함수 코드 평가"></a>7-4. foo 함수 코드 평가</h3><ul>
-<li>함수 실행 컨텍스트 생성</li>
-<li>함수 렉시컬 환경 생성<ul>
-<li>함수 환경 레코드 생성</li>
-<li>외부 렉시컬 환경에 대한 참조 할당</li>
-<li>this 바인딩</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="7-5-foo-함수-코드-실행"><a href="#7-5-foo-함수-코드-실행" class="headerlink" title="7-5. foo 함수 코드 실행"></a>7-5. foo 함수 코드 실행</h3><p>식별자 결정을 위해 실행 중인 실행 컨텍스트의 렉시컬 환경에서 식별자를 검색하기 시작한다. </p>
-<hr>
-<h3 id="7-6-bar-함수-코드-평가"><a href="#7-6-bar-함수-코드-평가" class="headerlink" title="7-6. bar 함수 코드 평가"></a>7-6. bar 함수 코드 평가</h3><p>bar 함수가 호출되면 함수 내부로 코드의 제어권이 이동한다. 그리고 함수 코드를 평가하기 시작한다. 실행 컨텍스트와 렉시컬 환경의 생성 과정은 foo 함수 코드 평가와 동일하다.</p>
-<hr>
-<h3 id="7-7-bar-함수-코드-실행"><a href="#7-7-bar-함수-코드-실행" class="headerlink" title="7-7. bar 함수 코드 실행"></a>7-7. bar 함수 코드 실행</h3><ol>
-<li>식별자 console 검색</li>
-<li>log 메소드 검색</li>
-<li>표현식 a + b + x + y + z의 평가</li>
-<li>console.log 메소드 호출</li>
-</ol>
-<hr>
-<h3 id="7-8-bar-함수-코드-실행-종료"><a href="#7-8-bar-함수-코드-실행-종료" class="headerlink" title="7-8. bar 함수 코드 실행 종료"></a>7-8. bar 함수 코드 실행 종료</h3><p>console.log 메소드가 호출되고 종료하면 더 이상 실행할 코드가 없으므로 bar 함수 코드의 실행이 종료된다. 이때 실행 컨텍스트 스택에서 bar 함수 실행 컨텍스트가 팝되어 제거되고 foo 실행 컨텍스트가 실행 중인 실행 컨텍스트가 된다.</p>
-<hr>
-<h3 id="7-9-foo-함수-코드-실행-종료"><a href="#7-9-foo-함수-코드-실행-종료" class="headerlink" title="7-9. foo 함수 코드 실행 종료"></a>7-9. foo 함수 코드 실행 종료</h3><p>bar 함수가 종료하면 더 이상 실행할 코드가 없으므로 foo 함수 코드의 실행이 종료된다. 이때 실행 컨텍스트 스택에서 foo 함수 실행 컨텍스트가 팝되어 제거되고 전역 실행 컨텍스트가 실행 중인 실행 컨텍스트가 된다.</p>
-<hr>
-<h3 id="7-10-전역-코드-실행-종료"><a href="#7-10-전역-코드-실행-종료" class="headerlink" title="7-10. 전역 코드 실행 종료"></a>7-10. 전역 코드 실행 종료</h3><p>foo 함수가 종료하면 더 이상 실행할 전역 코드가 없으므로 전역 코드의 실행이 종료되고 전역 실행 컨텍스트도 실행 컨텍스트 스택에서 팝되어 실행 컨텍스트 스택에는 아무것도 남아있지 않게 된다.</p>
-<hr>
-<h2 id="8-실행-컨텍스트와-블록-레벨-스코프"><a href="#8-실행-컨텍스트와-블록-레벨-스코프" class="headerlink" title="8. 실행 컨텍스트와 블록 레벨 스코프"></a>8. 실행 컨텍스트와 블록 레벨 스코프</h2><p>let 키워드로 선언한 변수는 모든 코드 블록(함수, if 문, for 문, while 문, try/catch 문 등) 을 지역 스코프로 인정하는 블록 레벨 스코프(Block-level scope)를 따른다.</p>
-<p>if 문의 코드 블록 내에서 let 키워드로 변수가 선언되었다. 따라서 if 문이 실행되면 if 문의 블록 레벨 스코프를 생성해야 한다. 이를 위해 if 문을 위한 선언적 환경 레코드를 갖는 렉시컬 환경을 새롭게 생성하여 기존의 전역 렉시컬 환경을 교체한다. 이때 새롭게 생성된 if 문을 위한 렉시컬 환경의 외부 렉시컬 환경에 대한 참조는 교체된 이전의 전역 렉시컬 환경을 가리킨다.<br>if 문 실행이 종료되면 if 문이 실행되기 이전의 렉시컬 환경으로 되돌린다.이는 if 문 뿐만이 아니라 모든 블록문에 적용된다.</p>
-<hr>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/03/this%ED%82%A4%EC%9B%8C%EB%93%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="wgy5446">
-      <meta itemprop="description" content="All story about js">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="John">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/this%ED%82%A4%EC%9B%8C%EB%93%9C/" class="post-title-link" itemprop="url">this</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-16 20:45:05 / Modified: 21:20:49" itemprop="dateCreated datePublished" datetime="2020-03-16T20:45:05+09:00">2020-03-16</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-this-키워드"><a href="#1-this-키워드" class="headerlink" title="1. this 키워드"></a>1. this 키워드</h2><p>this는 자신이 속한 객체 또는 자신이 생성할 인스턴스를 가리키는 자기 참조 변수이다. this를 통해 자신이 속한 객체 또는 자신이 생성할 인스턴스의 프로퍼티나 메소드를 참조할 수 있다. this가 가리키는 값, 즉 this 바인딩은 함수 호출 방식에 의해 동적으로 결정된다.</p>
-<hr>
-<h2 id="2-함수-호출-방식과-this-바인딩"><a href="#2-함수-호출-방식과-this-바인딩" class="headerlink" title="2. 함수 호출 방식과 this 바인딩"></a>2. 함수 호출 방식과 this 바인딩</h2><p>this가 가리키는 값, 즉 this 바인딩은 함수의 호출 방식, 즉 함수가 어떻게 호출되었는지에 따라 동적으로 결정된다.</p>
-<hr>
-<h3 id="2-1-일반-함수-호출"><a href="#2-1-일반-함수-호출" class="headerlink" title="2-1. 일반 함수 호출"></a>2-1. 일반 함수 호출</h3><p>기본적으로 this에는 전역 객체(Global object)가 바인딩된다. 즉, 일반 함수로 호출된 모든 함수(중첩 함수, 콜백 함수 포함) 내부의 this에는 전역 객체가 바인딩된다.</p>
-<hr>
-<h3 id="2-2-메소드-호출"><a href="#2-2-메소드-호출" class="headerlink" title="2-2. 메소드 호출"></a>2-2. 메소드 호출</h3><p>메소드 내부의 this는 메소드를 호출한 객체, 즉 메소드 이름 앞의 마침표(.) 연산자 앞에 기술한 객체에 바인딩된다.</p>
-<hr>
-<h3 id="2-3-생성자-함수-호출"><a href="#2-3-생성자-함수-호출" class="headerlink" title="2-3. 생성자 함수 호출"></a>2-3. 생성자 함수 호출</h3><p>생성자 함수 내부의 this에는 생성자 함수가 (미래에) 생성할 인스턴스가 바인딩된다.</p>
-<hr>
-<h3 id="2-4-Function-prototype-apply-call-bind-메소드에-의한-간접-호출"><a href="#2-4-Function-prototype-apply-call-bind-메소드에-의한-간접-호출" class="headerlink" title="2-4. Function.prototype.apply/call/bind 메소드에 의한 간접 호출"></a>2-4. Function.prototype.apply/call/bind 메소드에 의한 간접 호출</h3><p>apply와 call 메소드의 본질적인 기능은 함수를 호출하는 것이다. apply와 call 메소드는 함수를 호출하면서 첫번째 인수로 전달한 특정 객체를 호출한 함수의 this에 바인딩한다. Function.prototype.bind 메소드는 apply와 call 메소드와는 달리 함수를 호출하지 않고 this로 사용할 객체만을 전달한다. bind 메소드는 메소드의 this와 메소드 내부의 중첩 함수 또는 콜백 함수의 this가 불일치하는 문제를 해결하기 위해 유용하게 사용된다.</p>
-<hr>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/03/%EB%B9%8C%ED%8A%B8%EC%9D%B8%EA%B0%9D%EC%B2%B4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="wgy5446">
-      <meta itemprop="description" content="All story about js">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="John">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/%EB%B9%8C%ED%8A%B8%EC%9D%B8%EA%B0%9D%EC%B2%B4/" class="post-title-link" itemprop="url">빌트인 객체</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-15 21:31:24 / Modified: 22:43:37" itemprop="dateCreated datePublished" datetime="2020-03-15T21:31:24+09:00">2020-03-15</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-자바스크립트-객체의-분류"><a href="#1-자바스크립트-객체의-분류" class="headerlink" title="1. 자바스크립트 객체의 분류"></a>1. 자바스크립트 객체의 분류</h2><ul>
-<li><p>표준 빌트인 객체</p>
-<ul>
-<li>표준 빌트인 객체는 ECMAScript 사양에 정의된 객체를 말하며 애플리케이션 전역의 공통 기능을 제공한다. 표준 빌트인 객체는 ECMAScript 사양에 정의된 객체이므로 자바스크립트 실행 환경(브라우저 또는 Node.js 환경)과 관계없이 언제나 사용할 수 있다. 표준 빌트인 객체는 전역 객체의 프로퍼티로서 제공된다. 따라서 별도의 선언없이 전역 변수처럼 언제나 참조할 수 있다.</li>
-</ul>
-</li>
-<li><p>호스트 객체</p>
-<ul>
-<li>호스트 객체는 ECMAScript 사양에 정의되어 있지 않지만 자바스크립트 실행 환경(브라우저 환경 또는 Node.js 환경. “3.1 자바스크립트 실행 환경” 참고)에서 추가적으로 제공하는 객체를 말한다.<br>브라우저 환경에서는 DOM, BOM, Canvas, XMLHttpRequest, fetch, requestAnimationFrame, SVG, Web Storage, Web Component, Web worker와 같은 클라이언트 사이드 Web API를 호스트 객체로 제공하고 Node.js 환경에서는 Node.js 고유의 API를 호스트 객체로 제공한다.</li>
-</ul>
-</li>
-<li><p>사용자 정의 객체</p>
-<ul>
-<li>사용자 정의 객체는 표준 빌트인 객체와 호스트 객체처럼 기본 제공되는 객체가 아닌 사용자가 직접 정의한 객체를 말한다.</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="2-표준-빌트인-객체"><a href="#2-표준-빌트인-객체" class="headerlink" title="2. 표준 빌트인 객체"></a>2. 표준 빌트인 객체</h2><p>Math, Reflect, JSON을 제외한 표준 빌트인 객체는 모두 인스턴스를 생성할 수 있는 생성자 함수 객체이다. 생성자 함수 객체인 표준 빌트인 객체는 프로토타입 메소드와 정적 메소드를 제공하고 생성자 함수 객체가 아닌 표준 빌트인 객체는 정적 메소드만을 제공한다.</p>
-<hr>
-<h2 id="3-원시값과-래퍼-객체"><a href="#3-원시값과-래퍼-객체" class="headerlink" title="3. 원시값과 래퍼 객체"></a>3. 원시값과 래퍼 객체</h2><p>원시값인 문자열, 숫자, 불리언 값의 경우, 마치 객체처럼 이들 원시값에 대해 마침표 표기법(또는 대괄호 표기법)으로 접근하면 자바스크립트 엔진이 일시적으로 원시값을 연관된 객체로 변환해 주기 때문이다. 즉, 원시값을 객체처럼 사용하면 자바스크립트 엔진은 암묵적으로 연관된 객체를 생성하고 생성된 객체로 프로퍼티에 접근하거나 메소드를 호출하고 다시 원시값으로 되돌린다.<br>이처럼 문자열, 숫자, 불리언 값에 대해 객체처럼 접근하면 생성되는 임시 객체를 레퍼 객체(wrapper object)라 한다.</p>
-<hr>
-<h2 id="4-전역-객체"><a href="#4-전역-객체" class="headerlink" title="4. 전역 객체"></a>4. 전역 객체</h2><p>전역 객체(Global Object)는 코드가 실행되기 이전 단계에 자바스크립트 엔진에 의해 어떤 객체보다도 먼저 생성되는 특수한 객체이며 어떤 객체에도 속하지 않은 최상위 객체이다.<br>전역 객체는 자바스크립트 환경에 따라 지칭하는 이름이 제각각이다. 브라우저 환경에서는 window가 전역 객체를 가리키지만 Node.js 환경에서는 global이 전역 객체를 가리킨다.</p>
-<ul>
-<li>전역 객체의 특징<ul>
-<li>전역 객체는 개발자가 의도적으로 생성할 수 없다. 즉, 전역 객체를 생성할 수 있는 생성자 함수가 제공되지 않는다.</li>
-<li>전역 객체의 프로퍼티를 참조할 때 window(또는 global)를 생략할 수 있다.</li>
-<li>전역 객체는 Object, String, Number, Boolean, Function, Array, RegExp, Date, Math, Promise와 같은 모든 표준 빌트인 객체를 프로퍼티로 가지고 있다.</li>
-<li>자바스크립트 실행 환경에 따라 추가적으로 프로퍼티와 메소드를 갖는다. 브라우저 환경에서는 DOM, BOM, Canvas, XMLHttpRequest, fetch, requestAnimationFrame, SVG, Web Storage, Web Component, Web worker와 같은 클라이언트 사이드 Web API를 호스트 객체로 제공하고 Node.js 환경에서는 Node.js 고유의 API를 호스트 객체로 제공한다.</li>
-<li>var 키워드로 선언한 전역 변수와 선언하지 않은 변수에 값을 할당한 암묵적 전역 그리고 전역 함수는 전역 객체의 프로퍼티가 된다.</li>
-<li>let이나 const 키워드로 선언한 전역 변수는 전역 객체의 프로퍼티가 아니다.</li>
-<li>브라우저 환경의 모든 자바스크립트 코드는 하나의 전역 객체 window를 공유한다.</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="4-1-빌트인-전역-프로퍼티"><a href="#4-1-빌트인-전역-프로퍼티" class="headerlink" title="4-1. 빌트인 전역 프로퍼티"></a>4-1. 빌트인 전역 프로퍼티</h3><p>빌트인 전역 프로퍼티는 전역 객체의 프로퍼티를 의미한다. 주로 애플리케이션 전역에서 사용하는 값을 제공한한다.  </p>
-<hr>
-<h4 id="4-1-1-Infinity"><a href="#4-1-1-Infinity" class="headerlink" title="4-1-1. Infinity"></a>4-1-1. Infinity</h4><p>Infinity 프로퍼티는 양/음의 무한대를 나타내는 숫자값 Infinity를 갖는다.</p>
-<hr>
-<h4 id="4-1-2-NaN"><a href="#4-1-2-NaN" class="headerlink" title="4-1-2. NaN"></a>4-1-2. NaN</h4><p>NaN 프로퍼티는 숫자가 아님을 나타내는 숫자값 NaN을 갖는다. NaN 프로퍼티는 Number.NaN 프로퍼티와 같다.</p>
-<hr>
-<h4 id="4-1-3-undefined"><a href="#4-1-3-undefined" class="headerlink" title="4-1-3. undefined"></a>4-1-3. undefined</h4><p>undefined 프로퍼티는 원시 타입 undefined를 값으로 갖는다.</p>
-<hr>
-<h3 id="4-2-빌트인-전역-함수"><a href="#4-2-빌트인-전역-함수" class="headerlink" title="4-2. 빌트인 전역 함수"></a>4-2. 빌트인 전역 함수</h3><p>빌트인 전역 함수는 애플리케이션 전역에서 호출할 수 있는 빌트인 함수로서 전역 객체의 메소드이다.</p>
-<hr>
-<h4 id="4-2-1-eval"><a href="#4-2-1-eval" class="headerlink" title="4-2-1. eval"></a>4-2-1. eval</h4><p>문자열 형태로 매개변수에 전달된 코드를 런타임에 동적으로 평가하고 실행하여 결과값을 반환한다. 전달된 문자열 코드가 여러 개의 문으로 이루어져 있다면 모든 문을 실행 후 마지막 결과값을 반환한다.</p>
-<hr>
-<h4 id="4-2-2-isFinite"><a href="#4-2-2-isFinite" class="headerlink" title="4-2-2. isFinite"></a>4-2-2. isFinite</h4><p>매개 변수에 전달된 값이 정상적인 유한수인지 검사하여 그 결과를 불리언 타입으로 반환한다. 매개변수에 전달된 값이 숫자가 아닌 경우, 숫자로 타입을 변환한 후 검사를 수행한다.</p>
-<hr>
-<h4 id="4-2-3-isNaN"><a href="#4-2-3-isNaN" class="headerlink" title="4-2-3. isNaN"></a>4-2-3. isNaN</h4><p>매개변수에 전달된 값이 NaN인지 검사하여 그 결과를 불리런 타입으로 반환한다. 매개변수에 전달된 값이 숫자가 아닌 경우, 숫자로 타입을 변환한 후 검사를 수행한다.</p>
-<hr>
-<h4 id="4-2-4-parseFloat"><a href="#4-2-4-parseFloat" class="headerlink" title="4-2-4. parseFloat"></a>4-2-4. parseFloat</h4><p>매개변수에 전달된 문자열을 부동소수점 숫자로 변환하여 반환한다.</p>
-<hr>
-<h4 id="4-2-5-parseInt"><a href="#4-2-5-parseInt" class="headerlink" title="4-2-5. parseInt"></a>4-2-5. parseInt</h4><p>매개변수에 전달된 문자열을 정수형 숫자(Integer)로 해석(parsing)하여 반환한다. 반환값은 언제나 10진수이다.</p>
-<hr>
-<h4 id="4-2-6-encodeURI-decodeURI"><a href="#4-2-6-encodeURI-decodeURI" class="headerlink" title="4-2-6. encodeURI / decodeURI"></a>4-2-6. encodeURI / decodeURI</h4><p>encodeURI 함수는 매개변수로 전달된 URI를 인코딩한다. URI는 인터넷에 있는 자원을 나타내는 유일한 주소를 말한다. URI의 하위개념으로 URL, URN이 있다. 인코딩이란 URI의 문자들을 이스케이프 처리하는 것을 의미한다.</p>
-<hr>
-<h4 id="4-2-7-encodeURIComponent-decodeURIComponent"><a href="#4-2-7-encodeURIComponent-decodeURIComponent" class="headerlink" title="4-2-7. encodeURIComponent / decodeURIComponent"></a>4-2-7. encodeURIComponent / decodeURIComponent</h4><p>encodeURIComponent 함수는 매개변수로 전달된 URI(Uniform Resource Identifier) 구성 요소(component)를 인코딩한다. 여기서 인코딩이란 URI의 문자들을 이스케이프 처리하는 것을 의미한다. 단, 알파벳, 0~9의 숫자, - _ . ! ~ * ‘ ( ) 문자는 이스케이프 처리에서 제외된다. decodeURIComponent 함수는 매개변수로 전달된 URI 구성 요소를 디코딩한다.</p>
-<hr>
-<h3 id="4-3-암묵적-전역"><a href="#4-3-암묵적-전역" class="headerlink" title="4-3. 암묵적 전역"></a>4-3. 암묵적 전역</h3><p>foo 함수가 호출되면 자바스크립트 엔진은 변수 y에 값을 할당하기 위해 먼저 스코프 체인을 통해 선언된 변수인지 확인한다. 이때 foo 함수의 스코프와 전역 스코프 어디에서도 변수 y의 선언을 찾을 수 없으므로 참조 에러가 발생해야 한다. 하지만 자바스크립트 엔진은 y = 20을 window.y = 20으로 해석하여 전역 객체에 프로퍼티를 동적 생성한다. 결국 y는 전역 객체의 프로퍼티가 되어 마치 전역 변수처럼 동작한다. 이러한 현상을 암묵적 전역이라 한다.</p>
-<hr>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1206,7 +1104,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
