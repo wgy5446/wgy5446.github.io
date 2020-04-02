@@ -231,10 +231,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-03-30 19:56:41 / Modified: 21:08:35" itemprop="dateCreated datePublished" datetime="2020-03-30T19:56:41+09:00">2020-03-30</time>
+              <time title="Created: 2020-03-30 19:56:41" itemprop="dateCreated datePublished" datetime="2020-03-30T19:56:41+09:00">2020-03-30</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-02 22:41:04" itemprop="dateModified" datetime="2020-04-02T22:41:04+09:00">2020-04-02</time>
+              </span>
 
           
 
@@ -301,6 +307,12 @@
 <hr>
 <h2 id="5-요소-노드의-텍스트-조작"><a href="#5-요소-노드의-텍스트-조작" class="headerlink" title="5. 요소 노드의 텍스트 조작"></a>5. 요소 노드의 텍스트 조작</h2><h3 id="5-1-nodeValue"><a href="#5-1-nodeValue" class="headerlink" title="5-1. nodeValue"></a>5-1. nodeValue</h3><p>nodeValue 프로퍼티는 참조와 할당 모두 가능하다.노드의 nodeValue 프로퍼티를 참조하면 노드의 값을 반환한다. 이때 텍스트 노드가 아닌 노드, 즉 문서 노드나 요소 노드의 nodeValue 프로퍼티를 참조하면 null을 반환한다.</p>
 <h3 id="5-2-textContent"><a href="#5-2-textContent" class="headerlink" title="5-2. textContent"></a>5-2. textContent</h3><p>Node.prototype.textContent는 setter와 getter 모두 존재하는 접근자 프로퍼티로서 요소 노드의 텍스트와 모든 자손 노드의 텍스트를 모두 취득하거나 변경한다.</p>
+<hr>
+<h2 id="6-DOM-조작"><a href="#6-DOM-조작" class="headerlink" title="6. DOM 조작"></a>6. DOM 조작</h2><p>DOM 조작은 새로운 노드를 생성하여 DOM에 추가하거나 기존 노드를 삭제 또는 교체하는 것을 말한다. DOM 조작에 의해 DOM에 새로운 노드가 추가되거나 삭제되면 리플로우와 리페인트가 발생하는 원인이 되므로 성능에 영향을 준다.</p>
+<hr>
+<h3 id="6-1-innerHTML"><a href="#6-1-innerHTML" class="headerlink" title="6-1. innerHTML"></a>6-1. innerHTML</h3><p>Element.prototype.innerHTML 프로퍼티는 setter와 getter 모두 존재하는 접근자 프로퍼티로서 요소 노드의 HTML 마크업을 취득하거나 변경한다. 요소 노드의 innerHTML 프로퍼티를 참조하면 요소 노드의 컨텐츠 영역(시작 태그와 종료 태그 사이) 내에 포함된 모든 HTML 마크업을 문자열로 반환한다.</p>
+<p>요소 노드의 innerHTML 프로퍼티에 할당한 HTML 마크업 문자열은 렌더링 엔진에 의해 파싱되어 요소 노드의 자식으로 DOM에 반영된다. 이때 사용자로부터 입력 받은 데이터를 그대로 innerHTML 프로퍼티에 할당하는 것은 크로스 사이트 스크립팅 공격에 취약하므로 위험하다. HTML 새니티제이션은 사용자로부터 입력 받은 데이터에 의해 발생할 수 있는 크로스 사이트 스크립팅 공격을 예방하기 위해 잠재적 위험을 제거하는 기능을 말한다.DOMPurify는 아래와 같이 잠재적 위험을 내포한 HTML 마크업을 새니티제이션(살균)하여 잠재적 위험을 제거한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DOMPurify.sanitize(&#39;&lt;img src&#x3D;x onerror&#x3D;alert(1)&#x2F;&#x2F;&gt;&#39;); &#x2F;&#x2F; &#x3D;&gt; &lt;img src&#x3D;&quot;x&quot;&gt;</span><br></pre></td></tr></table></figure>
 
       
     </div>
