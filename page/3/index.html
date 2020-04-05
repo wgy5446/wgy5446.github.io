@@ -149,6 +149,91 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/02/%EB%B8%94%EB%A1%9D%EB%A0%88%EB%B2%A8%EC%8A%A4%EC%BD%94%ED%94%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wgy5446">
+      <meta itemprop="description" content="All story about js">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="John">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/%EB%B8%94%EB%A1%9D%EB%A0%88%EB%B2%A8%EC%8A%A4%EC%BD%94%ED%94%84/" class="post-title-link" itemprop="url">let, const와 블록 레벨 스코프</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-02-28 22:18:26 / Modified: 22:53:54" itemprop="dateCreated datePublished" datetime="2020-02-28T22:18:26+09:00">2020-02-28</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-var-키워드로-선언한-변수의-문제점"><a href="#1-var-키워드로-선언한-변수의-문제점" class="headerlink" title="1. var 키워드로 선언한 변수의 문제점"></a>1. var 키워드로 선언한 변수의 문제점</h2><h3 id="1-1-변수-중복-선언-허용"><a href="#1-1-변수-중복-선언-허용" class="headerlink" title="1-1. 변수 중복 선언 허용"></a>1-1. 변수 중복 선언 허용</h3><p>var 키워드로 선언한 변수는 중복 선언이 가능하다. 변수의 중복 선언은 문법적으로 허용되지만 사용하지 않는 것이 좋다.</p>
+<hr>
+<h3 id="1-2-함수-레벨-스코프"><a href="#1-2-함수-레벨-스코프" class="headerlink" title="1-2. 함수 레벨 스코프"></a>1-2. 함수 레벨 스코프</h3><p>var 키워드로 선언한 변수는 오로지 함수의 코드 블록 만을 지역 스코프로 인정한다. 따라서 함수 외부에서 var키워드로 선언한 변수는 코드 블록 내에서 선언하여도 모두 전역 변수가 된다.</p>
+<hr>
+<h3 id="1-3-변수-호이스팅"><a href="#1-3-변수-호이스팅" class="headerlink" title="1-3. 변수 호이스팅"></a>1-3. 변수 호이스팅</h3><p>var 키워드로 변수를 선언하면 변수 호이스팅에 의해 변수 선언문이 스코프의 선두로 끌어 올려진 것처럼 동작한다. 즉, 변수 호이스팅에 의해 var 키워드로 선언한 변수는 변수 선언문 이전에 참조할 수 있다. 단, 할당문 이전에 변수를 참조하면 언제나 undefined를 반환한다.</p>
+<hr>
+<h2 id="2-let-키워드"><a href="#2-let-키워드" class="headerlink" title="2. let 키워드"></a>2. let 키워드</h2><h3 id="2-1-변수-중복-선언-금지"><a href="#2-1-변수-중복-선언-금지" class="headerlink" title="2-1. 변수 중복 선언 금지"></a>2-1. 변수 중복 선언 금지</h3><p>let 키워드로 동일한 이름을 갖는 변수를 선언하면 문법 에러가 발생한다.</p>
+<hr>
+<h3 id="2-2-블록-레벨-스코프"><a href="#2-2-블록-레벨-스코프" class="headerlink" title="2-2. 블록 레벨 스코프"></a>2-2. 블록 레벨 스코프</h3><p>let 키워드로 선언한 변수는 모든 코드 블록(함수,if문,for문,while문,try/catch 문 등)을 지역 스코프로 인정하는 블록 레벨 스코프를 따른다.</p>
+<hr>
+<h3 id="2-3-변수-호이스팅"><a href="#2-3-변수-호이스팅" class="headerlink" title="2-3. 변수 호이스팅"></a>2-3. 변수 호이스팅</h3><p>let 키워드로 선언한 변수는 선언 단계와 초기화 단계가 분리되어 진행된다. 즉, 런타임 이전에 자바스크립트 엔진에 의해 암묵적으로 선언 단계가 먼저 실행되지만 초기화 단계는 변수 선언문에 도달했을 때 실행된다. 스코프의 시작 지점부터 초기화 시작 지점까지의 구간을 일시적 사각지대라고 부른다. let, const, class를 사용한 선언문은 호이스팅이 발생하지 않는 것처럼 동작한다.</p>
+<hr>
+<h3 id="2-4-전역-객체와-let"><a href="#2-4-전역-객체와-let" class="headerlink" title="2-4. 전역 객체와 let"></a>2-4. 전역 객체와 let</h3><p>전역 객체는 코드가 실행되기 이전 단계에 자바스크립트 엔진에 의해 어떤 객체보다도 먼저 생성되는 특수한 객체이며 어떤 객체에도 속하지 않은 최상위 객체이다.<br>전역 객체는 브라우저에서는 window, 서버 사이드 환경에서는 global 객체를 가리킨다.</p>
+<hr>
+<h2 id="3-const-키워드"><a href="#3-const-키워드" class="headerlink" title="3. const 키워드"></a>3. const 키워드</h2><h3 id="3-1-선언과-초기화"><a href="#3-1-선언과-초기화" class="headerlink" title="3-1. 선언과 초기화"></a>3-1. 선언과 초기화</h3><p>const 키워드로 선언한 변수는 반드시 선언과 동시에 할당이 이루어져야 한다. 그렇지 않으면 아래와 같이 문법 에러가 발생한다.<br>블록 레벨 스코프를 가지며 변수 호이스팅이 발생하지 않는 것처럼 동작한다.</p>
+<hr>
+<h3 id="3-2-재할당-금지"><a href="#3-2-재할당-금지" class="headerlink" title="3-2. 재할당 금지"></a>3-2. 재할당 금지</h3><p>const 키워드로 선언한 변수는 재할당이 금지된다.</p>
+<h3 id="3-3-상수"><a href="#3-3-상수" class="headerlink" title="3-3. 상수"></a>3-3. 상수</h3><p>const 키워드로 선언한 변수에 원시값을 할당한 경우, 변수값을 변경할 수 없다. 원시값은 변경 불가능한 값이므로 재할당없이 값을 변경할 수 있는 방법이 없기 때문이다. 이러한 특징을 이용해 const 키워드를 상수를 표현하는 데 사용하기도 한다. 재할당이 금지된다. 상수는 상태 유지와 가독성,유지보수의 편의를 위해 적극적으로 사용해야 한다.</p>
+<hr>
+<h3 id="3-3-const-키워드와-객체"><a href="#3-3-const-키워드와-객체" class="headerlink" title="3-3. const 키워드와 객체"></a>3-3. const 키워드와 객체</h3><p>const 키워드로 선언된 변수에 객체를 할당한 경우, 값을 변경할 수 있다. const 키워드는 재할당을 금지할 뿐 불변을 의미하지는 않는다.</p>
+<hr>
+<h3 id="4-var-vs-let-vs-const"><a href="#4-var-vs-let-vs-const" class="headerlink" title="4. var vs. let vs. const"></a>4. var vs. let vs. const</h3><p>변수 선언에는 기본적으로 const를 사용하고 let은 재할당이 필요한 경우에 한정해 사용하는 것이 좋다. 원시 값의 경우, 가급적 상수를 사용하는 편이 좋다. 그리고 객체를 재할당하는 경우는 생각보다 흔하지 않다. const 키워드를 사용하면 의도치 않은 재할당을 방지해 주기 때문에 보다 안전하다.</p>
+<ul>
+<li>ES6를 사용한다면 var 키워드는 사용하지 않는다.</li>
+<li>재할당이 필요한 경우에 한정해 let 키워드를 사용한다. 이때 변수의 스코프는 최대한 좁게 만든다.</li>
+<li>변경이 발생하지 않고 읽기 전용으로 사용하는 원시 값과 객체에는 const 키워드를 사용한다. const 키워드는 재할당을 금지하므로 안전하다.</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/02/%EC%A0%84%EC%97%AD%EB%B3%80%EC%88%98%EC%9D%98%EB%AC%B8%EC%A0%9C%EC%A0%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1106,76 +1191,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/02/%ED%91%9C%ED%98%84%EC%8B%9D%EA%B3%BC%EB%AC%B8%EC%98%88%EC%8A%B5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="wgy5446">
-      <meta itemprop="description" content="All story about js">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="John">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/%ED%91%9C%ED%98%84%EC%8B%9D%EA%B3%BC%EB%AC%B8%EC%98%88%EC%8A%B5/" class="post-title-link" itemprop="url">Expressions and Statements</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-02-20 23:00:00" itemprop="dateCreated datePublished" datetime="2020-02-20T23:00:00+09:00">2020-02-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-21 02:31:13" itemprop="dateModified" datetime="2020-02-21T02:31:13+09:00">2020-02-21</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-값"><a href="#1-값" class="headerlink" title="1.값"></a>1.값</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">값은 식(표현식)이 평가되어 생성된 결과이다.</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-리터럴"><a href="#2-리터럴" class="headerlink" title="2.리터럴"></a>2.리터럴</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">리터럴은 사람이 이해할 수 있는 문자 또는 약속된 기호를 사용하여 값을 생성하는 표기 방식이다.</span><br></pre></td></tr></table></figure>
-<h2 id="3-표현식"><a href="#3-표현식" class="headerlink" title="3.표현식"></a>3.표현식</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">표현식은 값으로 평가될 수 있는 문이다.</span><br></pre></td></tr></table></figure>
-<h2 id="4-문"><a href="#4-문" class="headerlink" title="4.문"></a>4.문</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(1)문은 프로그램을 구성하는 기본 단위이자 최소 실행 단위이다.</span><br><span class="line">(2)문은 여러 토큰들로 구성된다. 토큰이란</span><br><span class="line">문법적인 의미를 가지며, 문법적으로 더이상 나눌 수 없는 코드의 기본요소이다.</span><br><span class="line">(3)문을 명령문이라고도 부른다.</span><br></pre></td></tr></table></figure>
-<h2 id="5-세미콜론과-세미콜론-자동-삽입-기능"><a href="#5-세미콜론과-세미콜론-자동-삽입-기능" class="headerlink" title="5. 세미콜론과 세미콜론 자동 삽입 기능"></a>5. 세미콜론과 세미콜론 자동 삽입 기능</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">세미콜론은 문의 종료를 나타내며, 자바스크립트 엔진이 소스 코드를 해석할 때, 문의 끝이라고 예측되는 지점에 세미콜론 자동 삽입 기능이 암묵적으로 수행된다.</span><br></pre></td></tr></table></figure>
-<h2 id="6-표현식인-문과-표현식이-아닌-문"><a href="#6-표현식인-문과-표현식이-아닌-문" class="headerlink" title="6. 표현식인 문과 표현식이 아닌 문"></a>6. 표현식인 문과 표현식이 아닌 문</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">표현식인 문은 값으로 평가될 수 있는 문이며, 표현식이 아닌 문은 값으로 평가될 수 없는 문을 말한다. 또는 표현식인 문은 값으로 평가되므로 변수에 할당할 수 있고, 표현식이 아닌 문은 값으로 평가할 수 없으므로 변수에 할당하면 에러가 발생한다. 표현식이 아닌 문은 언제나 undifined를 출력하므로 이것을 완료 값이라 한다.</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1246,7 +1261,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

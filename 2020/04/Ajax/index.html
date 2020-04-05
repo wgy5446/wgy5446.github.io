@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"wgy5446.github.io","root":"/","scheme":"Muse","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="1. 렉시컬 스코프자바스크립트는 함수를 어디에 정의했는지에 따라 상위 스코프를 결정한다. 이를 렉시컬 스코프(정적 스코프)라 한다.렉시컬 환경의  “외부 렉시컬 환경에 대한 참조”에 저장할 참조값, 즉 상위 스코프에 대한 참조는 함수 정의가 평가되는 시점에 함수가 정의된 환경(위치)에 의해 결정된다. 이것이 바로 렉시컬 스코프이다.  2. 함수 객체의 내부">
+  <meta name="description" content="1. Ajax(Asynchronous javascript and XML)브라우저에서 웹페이지를 요청하거나 링크를 클릭하면 화면 갱신이 발생한다. 이것은 브라우저와 서버와의 통신에 의한 것이다. 서버는 요청받은 페이지를 반환하는데 이때 HTML에서 로드하는 CSS나 javaScript 파일들도 같이 반환된다. 클라이언트의 요청에 따라 서버는 정적인 파일을 반">
 <meta property="og:type" content="article">
-<meta property="og:title" content="클로저">
-<meta property="og:url" content="https://wgy5446.github.io/2020/03/%ED%81%B4%EB%A1%9C%EC%A0%80/index.html">
+<meta property="og:title" content="Ajax">
+<meta property="og:url" content="https://wgy5446.github.io/2020/04/Ajax/index.html">
 <meta property="og:site_name" content="John">
-<meta property="og:description" content="1. 렉시컬 스코프자바스크립트는 함수를 어디에 정의했는지에 따라 상위 스코프를 결정한다. 이를 렉시컬 스코프(정적 스코프)라 한다.렉시컬 환경의  “외부 렉시컬 환경에 대한 참조”에 저장할 참조값, 즉 상위 스코프에 대한 참조는 함수 정의가 평가되는 시점에 함수가 정의된 환경(위치)에 의해 결정된다. 이것이 바로 렉시컬 스코프이다.  2. 함수 객체의 내부">
+<meta property="og:description" content="1. Ajax(Asynchronous javascript and XML)브라우저에서 웹페이지를 요청하거나 링크를 클릭하면 화면 갱신이 발생한다. 이것은 브라우저와 서버와의 통신에 의한 것이다. 서버는 요청받은 페이지를 반환하는데 이때 HTML에서 로드하는 CSS나 javaScript 파일들도 같이 반환된다. 클라이언트의 요청에 따라 서버는 정적인 파일을 반">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-03-16T15:52:29.000Z">
-<meta property="article:modified_time" content="2020-03-16T16:17:10.984Z">
+<meta property="article:published_time" content="2020-04-05T12:51:43.000Z">
+<meta property="article:modified_time" content="2020-04-05T14:42:38.012Z">
 <meta property="article:author" content="wgy5446">
 <meta property="article:tag" content="javascript">
 <meta property="article:tag" content=" js">
@@ -39,7 +39,7 @@
 <meta property="article:tag" content=" leopold">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://wgy5446.github.io/2020/03/%ED%81%B4%EB%A1%9C%EC%A0%80/">
+<link rel="canonical" href="https://wgy5446.github.io/2020/04/Ajax/">
 
 
 <script id="page-configurations">
@@ -51,7 +51,7 @@
   };
 </script>
 
-  <title>클로저 | John</title>
+  <title>Ajax | John</title>
   
 
 
@@ -151,7 +151,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/03/%ED%81%B4%EB%A1%9C%EC%A0%80/">
+    <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/04/Ajax/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -164,7 +164,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          클로저
+          Ajax
         </h1>
 
         <div class="post-meta">
@@ -175,7 +175,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-03-17 00:52:29 / Modified: 01:17:10" itemprop="dateCreated datePublished" datetime="2020-03-17T00:52:29+09:00">2020-03-17</time>
+              <time title="Created: 2020-04-05 21:51:43 / Modified: 23:42:38" itemprop="dateCreated datePublished" datetime="2020-04-05T21:51:43+09:00">2020-04-05</time>
             </span>
 
           
@@ -189,15 +189,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-렉시컬-스코프"><a href="#1-렉시컬-스코프" class="headerlink" title="1. 렉시컬 스코프"></a>1. 렉시컬 스코프</h2><p>자바스크립트는 함수를 어디에 정의했는지에 따라 상위 스코프를 결정한다. 이를 렉시컬 스코프(정적 스코프)라 한다.<br>렉시컬 환경의  “외부 렉시컬 환경에 대한 참조”에 저장할 참조값, 즉 상위 스코프에 대한 참조는 함수 정의가 평가되는 시점에 함수가 정의된 환경(위치)에 의해 결정된다. 이것이 바로 렉시컬 스코프이다.</p>
+        <h2 id="1-Ajax-Asynchronous-javascript-and-XML"><a href="#1-Ajax-Asynchronous-javascript-and-XML" class="headerlink" title="1. Ajax(Asynchronous javascript and XML)"></a>1. Ajax(Asynchronous javascript and XML)</h2><p>브라우저에서 웹페이지를 요청하거나 링크를 클릭하면 화면 갱신이 발생한다. 이것은 브라우저와 서버와의 통신에 의한 것이다.</p>
+<p>서버는 요청받은 페이지를 반환하는데 이때 HTML에서 로드하는 CSS나 javaScript 파일들도 같이 반환된다. 클라이언트의 요청에 따라 서버는 정적인 파일을 반환할 수도 있고 서버 사이드 프로그램이 만들어낸 파일이나 데이터를 반환할 수도 있다. 서버로부터 웹페이지가 반환되면 클라이언트는 이를 랜더링하여 화면에 표시한다.</p>
+<p>Ajax는 자바스크립트를 이용해서 비동기적으로 서버와 브라우저가 데이터를 교환할 수 있는 통신 방식을 의미한다. 서버로부터 웹페이지가 반환되면 화면 전체를 갱신해야 하는데 페이지 일부만을 갱신하고도 동일한 효과를 볼 수 있도록 하는 것이 Ajax이다.</p>
 <hr>
-<h2 id="2-함수-객체의-내부-슬롯-Environment"><a href="#2-함수-객체의-내부-슬롯-Environment" class="headerlink" title="2. 함수 객체의 내부 슬롯 [[Environment]]"></a>2. 함수 객체의 내부 슬롯 [[Environment]]</h2><p>함수는 자신의 내부 슬롯 [[Environment]]에 자신이 정의된 환경, 즉 상위 스코프의 참조를 저장한다.</p>
-<p>함수 객체의 내부 슬롯 [[Environment]]에 저장한 현재 실행 중인 실행 컨텍스트의 렉시컬 환경의 참조가 바로 상위 스코프이다. 또한 자신이 호출되었을 때 생성될 함수 렉시컬 환경의 “외부 렉시컬 환경에 대한 참조”에 저장될 참조값이다. 함수 객체는 내부 슬롯 [[Environment]]에 저장한 렉시컬 환경의 참조, 즉 상위 스코프를 자신이 존재하는 한 기억한다.</p>
+<h2 id="2-JSON-JavaScript-Objec-Notation"><a href="#2-JSON-JavaScript-Objec-Notation" class="headerlink" title="2. JSON (JavaScript Objec Notation)"></a>2. JSON (JavaScript Objec Notation)</h2><p>클라이언트와 서버 간에는 데이터 교환이 필요하다. JSON은 클라이언트와 서버 간 데이터 교환을 위한 규칙 즉 데이터 포맷을 말한다. JSON은 순수한 텍스트로 구성된 규칙이 있는 데이터 구조이다.<br>키는 반드시 큰따옴표로 둘러싸야 한다.</p>
 <hr>
-<h2 id="3-클로저와-렉시컬-환경"><a href="#3-클로저와-렉시컬-환경" class="headerlink" title="3. 클로저와 렉시컬 환경"></a>3. 클로저와 렉시컬 환경</h2><p>클로저에 의해 참조되는 상위 스코프의 변수를 자유 변수(Free variable)라고 부른다. 클로저(closure)란 “함수가 자유 변수에 대해 닫혀있다(closed)”라는 의미이다. 이를 좀 더 알기 쉽게 의역하자면 “자유 변수와 묶여있는 함수”라고 할 수 있다.</p>
+<h3 id="2-1-JSON-stringify"><a href="#2-1-JSON-stringify" class="headerlink" title="2-1. JSON.stringify"></a>2-1. JSON.stringify</h3><p>JSON.stringify메소드는 객체를 JSON 형식의 문자열로 변환한다.</p>
 <hr>
-<h2 id="4-클로저의-활용"><a href="#4-클로저의-활용" class="headerlink" title="4. 클로저의 활용"></a>4. 클로저의 활용</h2><p>클로저는 상태를 안전하게 유지하기 위해 사용한다. 상태가 의도치 않게 변경되지 않도록 안전하게 은닉(Information hiding)한다. 그리고 이전 상태를 기억하다가 상태가 변경되면 최신 상태(state)를 유지한다.</p>
+<h3 id="2-2-JSON-parse"><a href="#2-2-JSON-parse" class="headerlink" title="2-2. JSON.parse"></a>2-2. JSON.parse</h3><p>JSON.parse 메소드는 JSON 데이터를 가진 문자열을 객체로 변환한다.</p>
 <hr>
+<h2 id="3-XMLHttpRequest"><a href="#3-XMLHttpRequest" class="headerlink" title="3. XMLHttpRequest"></a>3. XMLHttpRequest</h2><p>브라우저는 XMLHttpRequest 객체를 이용하여 Ajax 요청을 생성하고 전송한다. 서버가 브라우저의 요청에 대해 응답을 반환하면 같은 XMLHttpRequest 객체가 그 결과를 처리한다.</p>
+<hr>
+<h3 id="3-1-Ajax-request"><a href="#3-1-Ajax-request" class="headerlink" title="3-1. Ajax request"></a>3-1. Ajax request</h3><p>Ajax 요청 처리의 예이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; XMLHttpRequest 객체의 생성</span><br><span class="line">const xhr &#x3D; new XMLHttpRequest();</span><br><span class="line">&#x2F;&#x2F; 비동기 방식으로 Request를 오픈한다</span><br><span class="line">xhr.open(&#39;GET&#39;, &#39;&#x2F;users&#39;);</span><br><span class="line">&#x2F;&#x2F; Request를 전송한다</span><br><span class="line">xhr.send();</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="3-1-1-XMLHttpRequest-open"><a href="#3-1-1-XMLHttpRequest-open" class="headerlink" title="3-1-1. XMLHttpRequest.open"></a>3-1-1. XMLHttpRequest.open</h3><p>XMLHttpRequest 객체의 인스턴스를 생성하고 XMLHttpRequest.open 메소드를 사용하여 서버로의 요청을 준비한다. </p>
+<p>XMLHttpRequest.open의 사용법</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XMLHttpRequest.open(method, url[, async]);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>매개변수와 설명<ul>
+<li>method : HTTP method (“GET”, “POST”, “PUT”, “DELETE” 등)</li>
+<li>url : 요청을 보낼 URL</li>
+<li>async : 비동기 조작 여부. 옵션으로 default는 true이며 비동기 방식으로 동작한다.</li>
+</ul>
+</li>
+</ul>
 
     </div>
 
@@ -213,13 +232,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/%EC%8B%A4%ED%96%89%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8/" rel="prev" title="실행 컨텍스트">
-      <i class="fa fa-chevron-left"></i> 실행 컨텍스트
+    <a href="/2020/04/%EC%9D%B4%EB%B2%A4%ED%8A%B8%EB%AC%B8%EC%A0%9C/" rel="prev" title="이벤트 문제">
+      <i class="fa fa-chevron-left"></i> 이벤트 문제
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/%ED%81%B4%EB%9E%98%EC%8A%A4/" rel="next" title="클래스">
-      클래스 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -279,7 +295,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-렉시컬-스코프"><span class="nav-number">1.</span> <span class="nav-text">1. 렉시컬 스코프</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-함수-객체의-내부-슬롯-Environment"><span class="nav-number">2.</span> <span class="nav-text">2. 함수 객체의 내부 슬롯 [[Environment]]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-클로저와-렉시컬-환경"><span class="nav-number">3.</span> <span class="nav-text">3. 클로저와 렉시컬 환경</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-클로저의-활용"><span class="nav-number">4.</span> <span class="nav-text">4. 클로저의 활용</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Ajax-Asynchronous-javascript-and-XML"><span class="nav-number">1.</span> <span class="nav-text">1. Ajax(Asynchronous javascript and XML)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-JSON-JavaScript-Objec-Notation"><span class="nav-number">2.</span> <span class="nav-text">2. JSON (JavaScript Objec Notation)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-JSON-stringify"><span class="nav-number">2.1.</span> <span class="nav-text">2-1. JSON.stringify</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-JSON-parse"><span class="nav-number">2.2.</span> <span class="nav-text">2-2. JSON.parse</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-XMLHttpRequest"><span class="nav-number">3.</span> <span class="nav-text">3. XMLHttpRequest</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-Ajax-request"><span class="nav-number">3.1.</span> <span class="nav-text">3-1. Ajax request</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1-XMLHttpRequest-open"><span class="nav-number">3.2.</span> <span class="nav-text">3-1-1. XMLHttpRequest.open</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
