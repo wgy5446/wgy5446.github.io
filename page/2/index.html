@@ -149,6 +149,129 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/03/Es6%ED%95%A8%EC%88%98%EC%9D%98%EC%B6%94%EA%B0%80%EA%B8%B0%EB%8A%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wgy5446">
+      <meta itemprop="description" content="All story about js">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="John">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/Es6%ED%95%A8%EC%88%98%EC%9D%98%EC%B6%94%EA%B0%80%EA%B8%B0%EB%8A%A5/" class="post-title-link" itemprop="url">ES6 함수의 추가 기능</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-19 23:45:49" itemprop="dateCreated datePublished" datetime="2020-03-19T23:45:49+09:00">2020-03-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-20 01:16:37" itemprop="dateModified" datetime="2020-03-20T01:16:37+09:00">2020-03-20</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-함수의-구분"><a href="#1-함수의-구분" class="headerlink" title="1. 함수의 구분"></a>1. 함수의 구분</h2><p>함수는 일반적인 함수로서 호출할 수도 있고, new  연산자와 함께 호출하여 인스턴스를 생성할 수 있는 생성자 함수로서 호출할 수도 있으며, 객체에 바인딩되어 메소드로서 호출할 수도 있다. ES6 이전의 모든 함수는 Callable이며 constructor이다. 함수에 전달되어 보조 역할만을 수행하는 콜백 함수도 constructor이기 때문에 불필요한 프로토타입 객체를 생성한다. 하지만 ES6의 메소드와 화살표 함수는 non-constructor이다.</p>
+<hr>
+<h2 id="2-메소드"><a href="#2-메소드" class="headerlink" title="2. 메소드"></a>2. 메소드</h2><p>ES6 사양에서 메소드는 메소드 축약 표현으로 정의된 함수 만을 의미한다. 그리고 인스턴스를 생성 하지 않는 non-constructor이다. ES6 메소드는 생성자 함수로서 호출할 수 없고 prototype 프로퍼티가 없으므로 프로토타입도 생성하지 않는다. 참고로 표준인 빌드인 객체의 메소드는 모두 non-construct이다.</p>
+<hr>
+<h2 id="3-화살표-함수"><a href="#3-화살표-함수" class="headerlink" title="3. 화살표 함수"></a>3. 화살표 함수</h2><p>화살표 함수는 function키워드 대신 화살표(=&gt;)를 사용하여 함수를 정의할 수 있다.</p>
+<h3 id="3-1-화살표-함수-정의"><a href="#3-1-화살표-함수-정의" class="headerlink" title="3-1. 화살표 함수 정의"></a>3-1. 화살표 함수 정의</h3><ol>
+<li>매개 변수 선언</li>
+</ol>
+<p>매개 변수가 여러 개인 경우, 소괄호() 안에 매개 변수를 선언한다.</p>
+<p>매개 변수가 한 개인 경우, 소괄호()를 생략할 수 있다.</p>
+<p>매개 변수가 없는 경우, 소괄호()를 생략할 수 없다.</p>
+<ol start="2">
+<li>함수 몸체 정의</li>
+</ol>
+<p>함수 몸체가 한 줄의 문으로 구성된다면 중괄호{}를 생략할 수 있다. 이때 문은 암묵적으로 반환된다.</p>
+<p>함수 몸체가 여러 줄의 문으로 구성된다면 함수 몸체를 감싸는 중괄호 {}를 생략할 수 없다. 이때 반환값이 있다면 명시적으로 반환해야 한다.</p>
+<p>객체 리터럴을 반환하는 경우, 객체 리터럴을 소괄호 ()로 감싸 주어야 한다.</p>
+<p>화살표 함수도 즉시 실행 함수로 사용할 수 있다.</p>
+<p>화살표 함수도 일급 객체이므로 Array.prototype.map, Array.prototype.filter, Array.prototype.reduce와 같은 고차 함수에 인수로 전달할 수 있다.</p>
+<h3 id="3-2-화살표-함수와-일반-함수의-차이"><a href="#3-2-화살표-함수와-일반-함수의-차이" class="headerlink" title="3-2. 화살표 함수와 일반 함수의 차이"></a>3-2. 화살표 함수와 일반 함수의 차이</h3><ol>
+<li><p>화살표 함수는 인스턴스를 생성할 수 없는 non-constructor이다.</p>
+</li>
+<li><p>중복된 매개 변수 이름을 선언할 수 없다.</p>
+</li>
+<li><p>화살표 함수는 함수 자체의 this, arguments, super, new.target 바인딩을 갖지 않는다.</p>
+</li>
+</ol>
+<h3 id="3-3-this"><a href="#3-3-this" class="headerlink" title="3-3. this"></a>3-3. this</h3><p>화살표 함수는 다른 함수의 인수로 전달되어 중첩 함수(콜백 함수)로 사용되는 경우가 많다.</p>
+<p>ES6 이전에는 중첩 함수 내부의 this 문제를 해결하기 위해 아래와 같이 3가지 방법을 사용했다.</p>
+<ol>
+<li><p>메소드를 호출한 prefixer 객체를 가리키는 this를 일단 회피시킨 다음 콜백 함수 내부에서 사용한다.</p>
+</li>
+<li><p>Array.prototype.map의 2번째 매개변수에 메소드를 호출한 prefixer 객체를 가리키는 this를 전달한다.</p>
+</li>
+<li><p>Function.prototype.bind 메소드를 사용하여 메소드를 호출한 prefixer 객체를 가리키는 this를 바인딩한다.</p>
+</li>
+</ol>
+<p>ES6에서는 화살표 함수를 사용하여 중첩 함수 내부의 this 문제를 해결할 수 있다.</p>
+<p>화살표 함수는 함수 자체의 this 바인딩이 없다. 화살표 함수 내부에서 this를 참조하면 상위 컨텍스트의 this를 그대로 참조한다. 이를 Lexical this라 한다. 마치 렉시컬 스코프와 같이 화살표 함수의 this가 함수가 정의된 위치에 의해 결정된다는 것을 의미한다.</p>
+<p>화살표 함수 내부의 this는 Function.prototype.call, Function.prototype.apply, Function.prototype.bind 메소드를 사용하여 변경할 수 없다.</p>
+<p>화살표 함수가 Function.prototype.call, Function.prototype.apply, Function.prototype.bind 메소드를 사용할 수 없다는 의미는 아니다. 단지 화살표 함수의 this는 일단 결정된 이후 변경할 수 없고 언제나 유지된다.</p>
+<h3 id="3-4-super"><a href="#3-4-super" class="headerlink" title="3-4. super"></a>3-4. super</h3><p>화살표 함수는 함수 자체의 super 바인딩이 없다. 따라서 화살표 함수 내부에서 super를 참조하면 상위 컨텍스트의 super를 참조한다.</p>
+<h3 id="3-5-arguments"><a href="#3-5-arguments" class="headerlink" title="3-5. arguments"></a>3-5. arguments</h3><p>화살표 함수 내부에서 arguments를 참조하면 상위 컨텍스트의 arguments를 참조한다.</p>
+<hr>
+<h2 id="4-Rest-파라미터"><a href="#4-Rest-파라미터" class="headerlink" title="4. Rest 파라미터"></a>4. Rest 파라미터</h2><h3 id="4-1-기본-문법"><a href="#4-1-기본-문법" class="headerlink" title="4-1. 기본 문법"></a>4-1. 기본 문법</h3><ol>
+<li><p>Rest 파라미터는 매개변수 이름 앞에 세개의 점 …을 붙여서 정의한 매개변수를 의미한다. Rest 파라미터는 함수에 전달된 인수들의 목록을 배열로 전달받는다.</p>
+</li>
+<li><p>Rest 파라미터는 반드시 마지막 파라미터이어야 한다.</p>
+</li>
+<li><p>Rest 파라미터는 단 하나만 선언할 수 있다.</p>
+</li>
+<li><p>Rest 파라미터는 함수 정의 시 선언한 매개변수 개수를 나타내는 함수 객체의 length 프로퍼티에 영향을 주지 않는다.</p>
+</li>
+</ol>
+<h3 id="4-2-Rest-파라미터와-arguments-객체"><a href="#4-2-Rest-파라미터와-arguments-객체" class="headerlink" title="4-2. Rest 파라미터와 arguments 객체"></a>4-2. Rest 파라미터와 arguments 객체</h3><p>가변 인자 함수는 파라미터를 통해 인수를 전달받는 것이 불가능하므로 arguments 객체를 활용하여 인수를 전달받는다. 하지만 arguments 객체는 유사 배열 객체이므로 배열 메소드를 사용하려면 Function.prototype.call 메소드를 통해 this를 변경하여 배열 메소드를 호출해야 하는 번거로움이 있다.</p>
+<p>ES6에서는 rest 파라미터를 사용하여 가변 인자의 목록을 배열로 직접 전달받을 수 있다. 이를 통해 유사 배열인 arguments 객체를 배열로 변환하는 번거로움을 피할 수 있다.</p>
+<p>일반 함수와 메소드는 Rest 파라미터와 arguments 객체를 모두 사용할 수 있다. 하지만 화살표 함수는 함수 자체의 arguments 객체를 갖지 않는다. 따라서 화살표 함수로 가변 인자 함수를 구현해야 할 때는 반드시 rest 파라미터를 사용해야 한다.</p>
+<h2 id="5-매개변수-기본값"><a href="#5-매개변수-기본값" class="headerlink" title="5. 매개변수 기본값"></a>5. 매개변수 기본값</h2><p>매개변수의 기본값은 undefined이다. 따라서 매개변수에 적절한 인수가 전달되었는지 함수 내부에서 확인할 필요가 있다. 즉, 방어 코드가 필요하다. Rest 파라미터에는 기본값을 지정할 수 없다. 매개변수 기본값은 함수 객체의 length 프로퍼티와 arguments 객체에 영향을 주지 않는다.</p>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/03/%ED%81%B4%EB%9E%98%EC%8A%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1084,109 +1207,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://wgy5446.github.io/2020/03/%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="wgy5446">
-      <meta itemprop="description" content="All story about js">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="John">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/%EC%96%B4%ED%8A%B8%EB%A6%AC%EB%B7%B0%ED%8A%B8/" class="post-title-link" itemprop="url">프로퍼티 어트리뷰트</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-03-03 22:38:14 / Modified: 23:33:48" itemprop="dateCreated datePublished" datetime="2020-03-03T22:38:14+09:00">2020-03-03</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-내부-슬롯과-내부-메소드"><a href="#1-내부-슬롯과-내부-메소드" class="headerlink" title="1. 내부 슬롯과 내부 메소드"></a>1. 내부 슬롯과 내부 메소드</h2><p>내부 슬롯과 내부 메소드는 자바스크립트 엔진의 알고리즘을 설명하기 위해 ECMAScript 사양에서 사용하는 의사 프로퍼티와 의사 메소드이다. ECMAScript 사양에 등장하는 이중 대괄호 ([[…]])로 감싼 이름들이 내부 슬롯과 내부 메소드이다. 내부 슬롯과 내부 메소드는 자바스크립트 엔진의 내부 로직이므로 원칙적으로 자바스크립트는 내부 슬롯과 내부 메소드에 직접적으로 접근하거나 호출할 수 있는 방법을 제공하지 않는다. 일부 내부 슬롯과 내부 메소드에 한하여 간접적으로 접근할 수 있는 수단을 제공하기는 한다.</p>
-<hr>
-<h2 id="2-프로퍼티-어트리뷰트와-프로퍼티-디스크립터-객체"><a href="#2-프로퍼티-어트리뷰트와-프로퍼티-디스크립터-객체" class="headerlink" title="2. 프로퍼티 어트리뷰트와 프로퍼티 디스크립터 객체"></a>2. 프로퍼티 어트리뷰트와 프로퍼티 디스크립터 객체</h2><p>자바스크립트 엔진은 프로퍼티를 생성할 때, 프로퍼티의 상태를 나타내는 프로퍼티 어트리뷰트를 기본값으로 자동 정의한다. 프로퍼티의 상태란 프로퍼티의 값, 값의 갱신 기능 여부, 열거 가능 여부, 재정의 가능 여부를 말한다. 프로퍼티 어트리뷰트는 자바스크립트 엔진이 관리하는 내부 상태 값인 내부 슬롯이다. 따라서 프로퍼티 어트리뷰트에 직접 접근할 수 없지만, Object.getOwnPropertyDescriptor 메소드를 사용하여 간접적으로 확인할 수는 있다. 메소드를 호출할 때, 첫번째 매개변수에는 객체의 참조를 전달하고 두번째 매개변수에는 프로퍼티 키를 문자열로 전달한다. 이때 메소드는 프로퍼티 어트리뷰트 정보를 제공하는 프로퍼티 디스크립터 객체를 반환한다.</p>
-<hr>
-<h2 id="3-데이터-프로퍼티와-접근자-프로퍼티"><a href="#3-데이터-프로퍼티와-접근자-프로퍼티" class="headerlink" title="3. 데이터 프로퍼티와 접근자 프로퍼티"></a>3. 데이터 프로퍼티와 접근자 프로퍼티</h2><ul>
-<li>데이터 프로퍼티키와 값으로 구성된 일반적인 프로퍼티다. 지금까지 살펴본 모든 프로퍼티는 데이터 프로퍼티다.</li>
-<li>접근자 프로퍼티 자체적으로는 값을 갖지 않고 다른 데이터 프로퍼티의 값을 읽거나 저장할 때 호출되는 접근자 함수로 구성된 프로퍼티다.</li>
-</ul>
-<hr>
-<h3 id="3-1-데이터-프로퍼티"><a href="#3-1-데이터-프로퍼티" class="headerlink" title="3-1. 데이터 프로퍼티"></a>3-1. 데이터 프로퍼티</h3><ul>
-<li>프로퍼티 어트리뷰트와 프로퍼티 디스크립터 객체의 프로퍼티 종류와 설명<ul>
-<li>[[Value]], value : 프로퍼티 키로 프로퍼티 값에 접근하면 반환되는 값이고, 프로퍼티 키로 프로퍼티 값을 저장하면 [[value]]에 값을 저장한다. 이때 프로퍼티가 없으면 프로퍼티를 생성하고 생성된 프로퍼티의 [[Value]]에 값을 저장한다.</li>
-<li>[[Writable]], writable : 프로퍼티 값의 변경 가능 여부를 나타내며 불리언 값을 갖으며, [[Writable]]의 값이 false인 경우, 해당 프로퍼티의[[Value]]의 값을 변경할 수 없는 읽기 전용 프로퍼티가 된다.</li>
-<li>[[Enumerable]], enumerable : 프로퍼티의 열거 가능 여부를 나타내며 불리언 값을 갖으며, [[Enumerable]]의 값이 false인 경우, 해당 프로퍼티는 for…in 문이나 Object.keys 메소드 등으로 열거할 수 없다.</li>
-<li>[[configurable]], configurable :  프로퍼티의 재정의 가능 여부를 나타내며 불리언 값을 갖으며, [[Configurable]]의 값이 false인 경우, 해당 프로퍼티의 삭제, 프로퍼티 어트리뷰트 값의 변경이 금지된다. 단, [[Writable]]이 true인 경우, [[Value]]의 변경과 [[Writable]]을 false로 변경하는 것은 허용된다.</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="3-2-접근자-프로퍼티"><a href="#3-2-접근자-프로퍼티" class="headerlink" title="3-2. 접근자 프로퍼티"></a>3-2. 접근자 프로퍼티</h3><ul>
-<li>프로퍼티 어트리뷰트와 프로퍼티 디스크립터 객체의 프로퍼티 종류와 설명<ul>
-<li>[[Get]], get : 접근자 프로퍼티를 통해 데이터 프로퍼티의 값을 읽을 때 호출되는 접근자 함수이다. 즉, 접근자 프로퍼티 키로 프로퍼티 값에 접근하면 프로퍼티 어트리뷰트 [[Get]]의 값, 즉 getter 함수가 호출되고 그 결과가 프로퍼티 값으로 반환된다.</li>
-<li>[[Set]], set : 접근자 프로퍼티를 통해 데이터 프로퍼티의 값을 저장할 때 호출되는 접근자 함수이다. 즉, 접근자 프로퍼티 키로 프로퍼티 값을 저장하면 프로퍼티 어트리뷰트 [[Set]]의 값, 즉 setter 함수가 호출되고 그 결과가 프로퍼티 값으로 저장된다.</li>
-<li>[[Enumerable]], enumerable : 데이터 프로퍼티의 [[Enumerable]]와 같다.</li>
-<li>[[Configurable]], configurable : 데이터 프로퍼티의 [[Configurable]]와 같다.</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="4-프로퍼티의-정의"><a href="#4-프로퍼티의-정의" class="headerlink" title="4. 프로퍼티의 정의"></a>4. 프로퍼티의 정의</h2><p>프로퍼티 정의란 새로운 프로퍼티를 추가하면서 프로퍼티 어트리뷰트를 명시적으로 정의하거나, 기존 프로퍼티의 프로퍼티 어트리뷰트를 재정의하는 것을 말한다.</p>
-<h2 id="5-객체-변경-방지"><a href="#5-객체-변경-방지" class="headerlink" title="5. 객체 변경 방지"></a>5. 객체 변경 방지</h2><p>객체는 변경 가능한 값이므로 재할당없이 직접 변경이 가능하다. 프로퍼티를 추가하거나 삭제할 수 있고, 프로퍼티의 값을 갱신할 수 있으며 Object.defineProperty 또는 Object.defineProperties 메소드를 사용하여 프로퍼티 어트리뷰트를 재정의할 수도 있다.</p>
-<ul>
-<li>객체 확장 금지 Object.preventExtensions로 프로퍼티 추가 X, 프로퍼티 삭제 O, 프로퍼티 값 읽기 O, 프로퍼티 값 쓰기 O, 프로퍼티 어트리뷰트 재정의 O.</li>
-<li>객체 밀봉 Object.seal로 프로퍼티 추가 X, 프로퍼티 삭제 X, 프로퍼티 값 읽기 O, 프로퍼티 값 쓰기 O, 프로퍼티 어트리뷰트 재정의 O.</li>
-<li>객체 동결 Object.freeze로 프로퍼티 추가 X, 프로퍼티 삭제 X, 프로퍼티 값 읽기 O, 프로퍼티 값 쓰기 X, 프로퍼티 어트리뷰트 재정의 X.</li>
-</ul>
-<hr>
-<h3 id="5-1-객체-확장-금지"><a href="#5-1-객체-확장-금지" class="headerlink" title="5-1. 객체 확장 금지"></a>5-1. 객체 확장 금지</h3><p>Object.preventExtensions 메소드는 객체의 확장을 금지한다. 즉, 확장이 금지된 객체는 프로퍼티 추가가 금지된다.</p>
-<hr>
-<h3 id="5-2-객체-밀봉"><a href="#5-2-객체-밀봉" class="headerlink" title="5-2. 객체 밀봉"></a>5-2. 객체 밀봉</h3><p>Object.seal 메소드는 객체를 밀봉한다. 즉, 밀봉된 객체는 읽기와 쓰기만 가능하게 된다.</p>
-<hr>
-<h3 id="5-3-객체-동결"><a href="#5-3-객체-동결" class="headerlink" title="5-3. 객체 동결"></a>5-3. 객체 동결</h3><p>Object.freeze 메소드는 객체를 동결한다. 즉, 동결된 객체는 읽기만 가능하게 된다.</p>
-<hr>
-<h3 id="5-4-불변-객체"><a href="#5-4-불변-객체" class="headerlink" title="5-4. 불변 객체"></a>5-4. 불변 객체</h3><p>객체의 중첩 객체까지 동결하여 변경이 불가능한 읽기 전용의 불변 객체를 구현하려면 객체를 값으로 갖는 모든 프로퍼티에 대해 재귀적으로 Object.freeze 메소드를 호출해야 한다.</p>
-<hr>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1257,7 +1277,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
