@@ -448,7 +448,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-02 22:41:04" itemprop="dateModified" datetime="2020-04-02T22:41:04+09:00">2020-04-02</time>
+                <time title="Modified: 2020-04-16 23:51:27" itemprop="dateModified" datetime="2020-04-16T23:51:27+09:00">2020-04-16</time>
               </span>
 
           
@@ -522,6 +522,10 @@
 <h3 id="6-1-innerHTML"><a href="#6-1-innerHTML" class="headerlink" title="6-1. innerHTML"></a>6-1. innerHTML</h3><p>Element.prototype.innerHTML 프로퍼티는 setter와 getter 모두 존재하는 접근자 프로퍼티로서 요소 노드의 HTML 마크업을 취득하거나 변경한다. 요소 노드의 innerHTML 프로퍼티를 참조하면 요소 노드의 컨텐츠 영역(시작 태그와 종료 태그 사이) 내에 포함된 모든 HTML 마크업을 문자열로 반환한다.</p>
 <p>요소 노드의 innerHTML 프로퍼티에 할당한 HTML 마크업 문자열은 렌더링 엔진에 의해 파싱되어 요소 노드의 자식으로 DOM에 반영된다. 이때 사용자로부터 입력 받은 데이터를 그대로 innerHTML 프로퍼티에 할당하는 것은 크로스 사이트 스크립팅 공격에 취약하므로 위험하다. HTML 새니티제이션은 사용자로부터 입력 받은 데이터에 의해 발생할 수 있는 크로스 사이트 스크립팅 공격을 예방하기 위해 잠재적 위험을 제거하는 기능을 말한다.DOMPurify는 아래와 같이 잠재적 위험을 내포한 HTML 마크업을 새니티제이션(살균)하여 잠재적 위험을 제거한다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DOMPurify.sanitize(&#39;&lt;img src&#x3D;x onerror&#x3D;alert(1)&#x2F;&#x2F;&gt;&#39;); &#x2F;&#x2F; &#x3D;&gt; &lt;img src&#x3D;&quot;x&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="6-2-insertAdiacentHTML-메소드"><a href="#6-2-insertAdiacentHTML-메소드" class="headerlink" title="6-2. insertAdiacentHTML 메소드"></a>6-2. insertAdiacentHTML 메소드</h3><p>Element.prototype.insertAdjacentHTML 메소드는 기존 요소를 제거하지 않으면서 위치를 지정해 새로운 요소를 삽입한다.</p>
+<p>insertAdjacentHTML 메소드는 두번째 인수로 전달한 HTML 마크업 문자열(DOMString)을 파싱하고 그 결과로 생성된 노드를 첫번째 인수로 전달한 위치(position)에 삽입하여 DOM에 반영한다. 첫번째 인수로 전달할 수 있는 문자열은 ‘beforebegin’, ‘afterbegin’, ‘beforeend’, ‘afterend’ 4가지이다.</p>
 
       
     </div>

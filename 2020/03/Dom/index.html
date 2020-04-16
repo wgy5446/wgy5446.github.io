@@ -28,7 +28,7 @@
 <meta property="og:description" content="3. 노드 탐색요소 노드 객체를 취득한 다음, 취득한 요소 노드를 기점으로 DOM 트리의 노드를 옮겨 다니며 취득한 요소 노드의 부모, 형제, 자식 등을 탐색 할 때가 있다. DOM 트리 상의 노드를 탐색할 수 있도록 node,Element 인터페이스는 트리 탐색 프로퍼티를 제공한다. DOM 트리를 구성하는 노드로서 갖추어야 할 트리 노드 탐색을 위한 프로">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-30T10:56:41.000Z">
-<meta property="article:modified_time" content="2020-04-02T13:41:04.923Z">
+<meta property="article:modified_time" content="2020-04-16T14:51:27.412Z">
 <meta property="article:author" content="wgy5446">
 <meta property="article:tag" content="javascript">
 <meta property="article:tag" content=" js">
@@ -181,7 +181,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-02 22:41:04" itemprop="dateModified" datetime="2020-04-02T22:41:04+09:00">2020-04-02</time>
+                <time title="Modified: 2020-04-16 23:51:27" itemprop="dateModified" datetime="2020-04-16T23:51:27+09:00">2020-04-16</time>
               </span>
 
           
@@ -255,6 +255,10 @@
 <h3 id="6-1-innerHTML"><a href="#6-1-innerHTML" class="headerlink" title="6-1. innerHTML"></a>6-1. innerHTML</h3><p>Element.prototype.innerHTML 프로퍼티는 setter와 getter 모두 존재하는 접근자 프로퍼티로서 요소 노드의 HTML 마크업을 취득하거나 변경한다. 요소 노드의 innerHTML 프로퍼티를 참조하면 요소 노드의 컨텐츠 영역(시작 태그와 종료 태그 사이) 내에 포함된 모든 HTML 마크업을 문자열로 반환한다.</p>
 <p>요소 노드의 innerHTML 프로퍼티에 할당한 HTML 마크업 문자열은 렌더링 엔진에 의해 파싱되어 요소 노드의 자식으로 DOM에 반영된다. 이때 사용자로부터 입력 받은 데이터를 그대로 innerHTML 프로퍼티에 할당하는 것은 크로스 사이트 스크립팅 공격에 취약하므로 위험하다. HTML 새니티제이션은 사용자로부터 입력 받은 데이터에 의해 발생할 수 있는 크로스 사이트 스크립팅 공격을 예방하기 위해 잠재적 위험을 제거하는 기능을 말한다.DOMPurify는 아래와 같이 잠재적 위험을 내포한 HTML 마크업을 새니티제이션(살균)하여 잠재적 위험을 제거한다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DOMPurify.sanitize(&#39;&lt;img src&#x3D;x onerror&#x3D;alert(1)&#x2F;&#x2F;&gt;&#39;); &#x2F;&#x2F; &#x3D;&gt; &lt;img src&#x3D;&quot;x&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="6-2-insertAdiacentHTML-메소드"><a href="#6-2-insertAdiacentHTML-메소드" class="headerlink" title="6-2. insertAdiacentHTML 메소드"></a>6-2. insertAdiacentHTML 메소드</h3><p>Element.prototype.insertAdjacentHTML 메소드는 기존 요소를 제거하지 않으면서 위치를 지정해 새로운 요소를 삽입한다.</p>
+<p>insertAdjacentHTML 메소드는 두번째 인수로 전달한 HTML 마크업 문자열(DOMString)을 파싱하고 그 결과로 생성된 노드를 첫번째 인수로 전달한 위치(position)에 삽입하여 DOM에 반영한다. 첫번째 인수로 전달할 수 있는 문자열은 ‘beforebegin’, ‘afterbegin’, ‘beforeend’, ‘afterend’ 4가지이다.</p>
 
     </div>
 
@@ -336,7 +340,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-노드-탐색"><span class="nav-number">1.</span> <span class="nav-text">3. 노드 탐색</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-공백-텍스트-노드"><span class="nav-number">1.1.</span> <span class="nav-text">3-1. 공백 텍스트 노드</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-자식-노드-탐색"><span class="nav-number">1.2.</span> <span class="nav-text">3-2. 자식 노드 탐색</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-자식-노드-존재-확인"><span class="nav-number">1.3.</span> <span class="nav-text">3-3. 자식 노드 존재 확인</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-텍스트-노드-탐색"><span class="nav-number">1.4.</span> <span class="nav-text">3-4. 텍스트 노드 탐색</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-부모-노드-탐색"><span class="nav-number">1.5.</span> <span class="nav-text">3-5. 부모 노드 탐색</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-형제-노드-탐색"><span class="nav-number">1.6.</span> <span class="nav-text">3-6. 형제 노드 탐색</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-노드-정보-취득"><span class="nav-number">2.</span> <span class="nav-text">4. 노드 정보 취득</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-요소-노드의-텍스트-조작"><span class="nav-number">3.</span> <span class="nav-text">5. 요소 노드의 텍스트 조작</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-nodeValue"><span class="nav-number">3.1.</span> <span class="nav-text">5-1. nodeValue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-textContent"><span class="nav-number">3.2.</span> <span class="nav-text">5-2. textContent</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-DOM-조작"><span class="nav-number">4.</span> <span class="nav-text">6. DOM 조작</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-innerHTML"><span class="nav-number">4.1.</span> <span class="nav-text">6-1. innerHTML</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-노드-탐색"><span class="nav-number">1.</span> <span class="nav-text">3. 노드 탐색</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-공백-텍스트-노드"><span class="nav-number">1.1.</span> <span class="nav-text">3-1. 공백 텍스트 노드</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-자식-노드-탐색"><span class="nav-number">1.2.</span> <span class="nav-text">3-2. 자식 노드 탐색</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-자식-노드-존재-확인"><span class="nav-number">1.3.</span> <span class="nav-text">3-3. 자식 노드 존재 확인</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-텍스트-노드-탐색"><span class="nav-number">1.4.</span> <span class="nav-text">3-4. 텍스트 노드 탐색</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-부모-노드-탐색"><span class="nav-number">1.5.</span> <span class="nav-text">3-5. 부모 노드 탐색</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-형제-노드-탐색"><span class="nav-number">1.6.</span> <span class="nav-text">3-6. 형제 노드 탐색</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-노드-정보-취득"><span class="nav-number">2.</span> <span class="nav-text">4. 노드 정보 취득</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-요소-노드의-텍스트-조작"><span class="nav-number">3.</span> <span class="nav-text">5. 요소 노드의 텍스트 조작</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-nodeValue"><span class="nav-number">3.1.</span> <span class="nav-text">5-1. nodeValue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-textContent"><span class="nav-number">3.2.</span> <span class="nav-text">5-2. textContent</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-DOM-조작"><span class="nav-number">4.</span> <span class="nav-text">6. DOM 조작</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-innerHTML"><span class="nav-number">4.1.</span> <span class="nav-text">6-1. innerHTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-insertAdiacentHTML-메소드"><span class="nav-number">4.2.</span> <span class="nav-text">6-2. insertAdiacentHTML 메소드</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
